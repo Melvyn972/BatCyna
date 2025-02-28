@@ -315,7 +315,7 @@ export default function DefaultShopDetails({ product }) {
                               Délais de livraison estimés :
                               <span className="fw-7">12-26 jours</span>
                               (International),
-                              <span className="fw-7">3-6 jours</span> (États-Unis).
+                              <span className="fw-7">3-6 jours</span> (France).
                             </p>
                           </div>
                         </div>

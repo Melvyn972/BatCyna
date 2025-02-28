@@ -102,7 +102,7 @@ export default function StoreLocations() {
                 </div>
                 <div className="tf-store-info">
                   <span>Phone</span>
-                  <p>(623) 934-2400</p>
+                  <p>07 69 96 28 51</p>
                 </div>
                 <div className="tf-store-info">
                   <span>Email</span>

@@ -30,13 +30,13 @@ export default function OurStore() {
                   <p className="mb_15">
                     <strong>Téléphone</strong>
                   </p>
-                  <p>(623) 934-2400</p>
+                  <p>07 69 96 28 51</p>
                 </div>
                 <div className="mb_20">
                   <p className="mb_15">
                     <strong>Email</strong>
                   </p>
-                  <p>EComposer@example.com</p>
+                  <p>CYNAStore@xiaonima.com</p>
                 </div>
                 <div className="mb_36">
                   <p className="mb_15">
@@ -117,13 +117,13 @@ export default function OurStore() {
                   <p className="mb_15">
                     <strong>Téléphone</strong>
                   </p>
-                  <p>(623) 934-2400</p>
+                  <p>07 69 96 28 51</p>
                 </div>
                 <div className="mb_20">
                   <p className="mb_15">
                     <strong>Email</strong>
                   </p>
-                  <p>EComposer@example.com</p>
+                  <p>CYNAStore@xiaonima.com</p>
                 </div>
                 <div className="mb_36">
                   <p className="mb_15">
@@ -224,13 +224,13 @@ export default function OurStore() {
                   <p className="mb_15">
                     <strong>Téléphone</strong>
                   </p>
-                  <p>(623) 934-2400</p>
+                  <p>07 69 96 28 51</p>
                 </div>
                 <div className="mb_20">
                   <p className="mb_15">
                     <strong>Email</strong>
                   </p>
-                  <p>EComposer@example.com</p>
+                  <p>CYNAStore@xiaonima.com</p>
                 </div>
                 <div className="mb_36">
                   <p className="mb_15">

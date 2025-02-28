@@ -6,7 +6,7 @@ import React from "react";
 
 export const metadata = {
   title:
-    "Shop Infinite Scrolling  || CYNA Store",
+    "Boutique || CYNA Store",
   description: "CYNA Store",
 };
 export default function page() {
@@ -15,9 +15,9 @@ export default function page() {
       <Header />
       <div className="tf-page-title">
         <div className="container-full">
-          <div className="heading text-center">New Arrival</div>
+          <div className="heading text-center">Boutique</div>
           <p className="text-center text-2 text_black-2 mt_5">
-          Découvrez notre dernière sélection de mode
+          Découvrez notre dernière sélection d'article
           </p>
         </div>
       </div>

@@ -30,7 +30,7 @@ export default function Compare() {
               <div className="col-12">
                 <div className="tf-compare-list">
                   <div className="tf-compare-head">
-                    <div className="title">Compare Products</div>
+                    <div className="title">Comparer</div>
                   </div>
                   <div className="tf-compare-offcanvas">
                     {items.map((elm, i) => (
@@ -69,7 +69,7 @@ export default function Compare() {
                         className="tf-compapre-button-clear-all link"
                         onClick={() => setCompareItem([])}
                       >
-                        Clear All
+                        Enlever tout
                       </div>
                     </div>
                   </div>

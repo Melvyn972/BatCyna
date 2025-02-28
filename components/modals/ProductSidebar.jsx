@@ -23,7 +23,7 @@ export default function ProductSidebar() {
     >
       <div className="canvas-wrapper">
         <header className="canvas-header">
-          <span className="title">SIDEBAR PRODUCT</span>
+            <span className="title">SIDEBAR PRODUIT</span>
           <span
             className="icon-close icon-close-popup"
             data-bs-dismiss="offcanvas"
@@ -40,7 +40,7 @@ export default function ProductSidebar() {
                 aria-expanded="true"
                 aria-controls="shipping"
               >
-                <span>Shipping &amp; Delivery</span>
+                <span>Statut &amp; Livraison</span>
                 <span className="icon icon-arrow-up" />
               </div>
               <div id="shipping" className="collapse show">
@@ -63,7 +63,7 @@ export default function ProductSidebar() {
                       </svg>
                     </div>
                     <div className="iconbox-content">
-                      <h4 className="iconbox-title">Free shipping</h4>
+                      <h4 className="iconbox-title">Livraison Gratuite</h4>
                       <p className="iconbox-desc">
                         Free iconbox for all US order
                       </p>
@@ -85,12 +85,12 @@ export default function ProductSidebar() {
                       </svg>
                     </div>
                     <div className="iconbox-content">
-                      <h4 className="iconbox-title">2 - 5 business days</h4>
-                      <p className="iconbox-desc">Receive your product!</p>
+                      <h4 className="iconbox-title">2 - 5 jours</h4>
+                      <p className="iconbox-desc">Pour recevoir vôtre produit!</p>
                     </div>
                   </li>
                 </ul>
-                <div className="widget-title">FEATURED PRODUCTS</div>
+                <div className="widget-title">Autres Produit</div>
                 <ul className="widget-list">
                   {featuredProducts.map(product => (
                     <li key={product.id} className="product">

@@ -3,7 +3,7 @@ import { options } from "@/data/singleProductOptions";
 import Image from "next/image";
 import React from "react";
 import Quantity from "./Quantity";
-import { products4 } from "@/data/products";
+import { products6 } from "@/data/products";
 import { useContextElement } from "@/context/Context";
 
 export default function StickyItem({ soldOut = false }) {
@@ -16,15 +16,15 @@ export default function StickyItem({ soldOut = false }) {
             <div className="tf-sticky-atc-img">
               <Image
                 className="lazyloaded"
-                data-src={products4[2].imgSrc}
+                data-src={products6[2].imgSrc}
                 alt="image"
-                src={products4[2].imgSrc}
+                src={products6[2].imgSrc}
                 width={770}
                 height={1075}
               />
             </div>
             <div className="tf-sticky-atc-title fw-5 d-xl-block d-none">
-              {products4[2].title}
+              {products6[2].title}
             </div>
           </div>
           <div className="tf-sticky-atc-infos">
@@ -48,11 +48,11 @@ export default function StickyItem({ soldOut = false }) {
                   </a>
                 ) : (
                   <a
-                    onClick={() => addProductToCart(products4[2].id)}
+                    onClick={() => addProductToCart(products6[2].id)}
                     className="tf-btn btn-fill radius-3 justify-content-center fw-6 fs-14 flex-grow-1 animate-hover-btn"
                   >
                     <span>
-                      {isAddedToCartProducts(products4[2].id)
+                      {isAddedToCartProducts(products6[2].id)
                         ? "Already Added"
                         : "Add to cart"}
                     </span>

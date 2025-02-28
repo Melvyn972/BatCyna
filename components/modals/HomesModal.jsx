@@ -11,7 +11,7 @@ export default function HomesModal() {
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="header">
-            <h5 className="demo-title">Ultimate Nextjs Template</h5>
+            <h5 className="demo-title">Accueil</h5>
             <span
               className="icon-close icon-close-popup"
               data-bs-dismiss="modal"

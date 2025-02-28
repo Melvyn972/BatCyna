@@ -10,7 +10,7 @@ export default function ShareModal() {
       <div className="modal-dialog modal-dialog-centered">
         <div className="modal-content">
           <div className="header">
-            <div className="demo-title">Share</div>
+            <div className="demo-title">Partager</div>
             <span
               className="icon-close icon-close-popup"
               data-bs-dismiss="modal"
