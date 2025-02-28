@@ -3,7 +3,7 @@ export const iconBoxes = [
   {
     iconClass: "icon-shipping-1",
     title: "Livraison Gratuite",
-    description: "Livraison gratuite pour les commandes de plus de 120 $",
+    description: "Livraison gratuite pour les commandes de plus de 120 €",
   },
   {
     iconClass: "icon-payment-1",
@@ -21,7 +21,7 @@ export const iconBoxData = [
   {
     iconClass: "icon-shipping",
     title: "Livraison Gratuite",
-    description: "Livraison gratuite pour les commandes de plus de 120 $",
+    description: "Livraison gratuite pour les commandes de plus de 120 €",
   },
   {
     iconClass: "icon-payment fs-22",
@@ -41,7 +41,7 @@ export const iconBoxData = [
   {
     iconClass: "icon-shipping",
     title: "Livraison Gratuite",
-    description: "Livraison gratuite pour les commandes de plus de 120 $",
+    description: "Livraison gratuite pour les commandes de plus de 120 €",
   },
   {
     iconClass: "icon-payment fs-22",
@@ -64,7 +64,7 @@ export const iconBoxes7 = [
     iconClass: "icon-shipping",
     iconStyle: "",
     title: "Livraison Gratuite",
-    description: "Livraison gratuite pour les commandes de plus de 120 $",
+    description: "Livraison gratuite pour les commandes de plus de 120 €",
   },
   {
     iconClass: "icon-payment",
@@ -89,7 +89,7 @@ export const slides23 = [
   {
     iconClass: "icon-shipping",
     title: "Livraison Gratuite",
-    description: "Livraison gratuite pour les commandes de plus de 120 $",
+    description: "Livraison gratuite pour les commandes de plus de 120 €",
   },
   {
     iconClass: "icon-payment fs-22",
@@ -149,7 +149,7 @@ export const iconBoxes2 = [
 export const slides = [
   {
     iconClass: "icon-shipping",
-    title: "Livraison Gratuite sur les Commandes de Plus de 120 $",
+    title: "Livraison Gratuite sur les Commandes de Plus de 120 €",
     justifyClass: "justify-content-end",
   },
   {
@@ -174,7 +174,7 @@ export const iconBoxes3 = [
   {
     iconClass: "icon-shipping",
     title: "Livraison Gratuite",
-    description: "Livraison gratuite pour les commandes de plus de 120 $",
+    description: "Livraison gratuite pour les commandes de plus de 120 €",
   },
   {
     iconClass: "icon-payment fs-22",
@@ -322,7 +322,7 @@ export const iconBoxes4 = [
 export const swiperData = [
   {
     iconClass: "icon-shipping",
-    title: "Livraison Gratuite sur les Commandes de Plus de 120 $",
+    title: "Livraison Gratuite sur les Commandes de Plus de 120 €",
   },
   {
     iconClass: "icon-trial",

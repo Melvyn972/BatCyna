@@ -28,8 +28,6 @@ import ToolbarShop from "@/components/modals/ToolbarShop";
 import { usePathname } from "next/navigation";
 import ShareModal from "@/components/modals/ShareModal";
 import ScrollTop from "@/components/common/ScrollTop";
-import RtlToggle from "@/components/common/RtlToggle";
-
 export default function RootLayout({ children }) {
   const pathname = usePathname();
   useEffect(() => {
@@ -162,7 +160,6 @@ export default function RootLayout({ children }) {
         </div>{" "}
         <Context>
           <div id="wrapper">{children}</div>
-          <RtlToggle />
           <HomesModal /> <QuickView />
           <QuickAdd />
           <ProductSidebar />

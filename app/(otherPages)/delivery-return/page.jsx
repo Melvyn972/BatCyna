@@ -22,7 +22,7 @@ export default function page() {
                   <h4>Livraison</h4>
                   <ul className="tag-list">
                     <li>Toutes les commandes sont expédiées avec UPS Express.</li>
-                    <li>Livraison toujours gratuite pour les commandes de plus de 250 $ US.</li>
+                    <li>Livraison toujours gratuite pour les commandes de plus de 250 € US.</li>
                     <li>Toutes les commandes sont expédiées avec un numéro de suivi UPS.</li>
                   </ul>
                 </div>

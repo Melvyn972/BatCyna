@@ -130,24 +130,7 @@
   opacity: 0 !important;
   visibility: hidden;
 }
-#toggle-rtl {
-  span {
-    &:nth-child(1) {
-      display: none;
-    }
-  }
-}
 html[dir="rtl"] {
-  #toggle-rtl {
-    span {
-      &:nth-child(1) {
-        display: block;
-      }
-      &:nth-child(2) {
-        display: none;
-      }
-    }
-  }
   .testimonial-hover-skincare {
     left: 0;
   }
