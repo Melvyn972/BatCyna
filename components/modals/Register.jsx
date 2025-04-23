@@ -17,76 +17,121 @@ export default function Register() {
             />
           </div>
           <div className="tf-login-form">
-            <form onSubmit={(e) => e.preventDefault()} className="">
+            <form
+              onSubmit={(e) => e.preventDefault()}
+              className="d-flex flex-column gap-3"
+            >
+              {/* Prénom */}
               <div className="tf-field style-1">
                 <input
                   className="tf-field-input tf-input"
                   placeholder=" "
                   type="text"
                   required
-                  name=""
+                  name="firstName"
                 />
-                <label className="tf-field-label" htmlFor="">
+                <label className="tf-field-label" htmlFor="firstName">
                   Prénom
                 </label>
               </div>
+
+              {/* Nom */}
               <div className="tf-field style-1">
                 <input
                   className="tf-field-input tf-input"
                   placeholder=" "
                   type="text"
                   required
-                  name=""
+                  name="lastName"
                 />
-                <label className="tf-field-label" htmlFor="">
+                <label className="tf-field-label" htmlFor="lastName">
                   Nom
                 </label>
               </div>
+
+              {/* Email */}
               <div className="tf-field style-1">
                 <input
                   className="tf-field-input tf-input"
                   placeholder=" "
                   type="email"
-                  autoComplete="abc@xyz.com"
+                  autoComplete="email"
                   required
-                  name=""
+                  name="email"
                 />
-                <label className="tf-field-label" htmlFor="">
+                <label className="tf-field-label" htmlFor="email">
                   Email *
                 </label>
               </div>
+
+              {/* Mot de passe */}
               <div className="tf-field style-1">
                 <input
                   className="tf-field-input tf-input"
                   placeholder=" "
                   type="password"
                   required
-                  name=""
+                  name="password"
                   autoComplete="current-password"
                 />
-                <label className="tf-field-label" htmlFor="">
-                  Password *
+                <label className="tf-field-label" htmlFor="password">
+                  Mot de passe *
                 </label>
               </div>
-              <div className="bottom">
-                <div className="w-100">
-                  <Link
-                    href={`/register`}
-                    className="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"
-                  >
-                    <span>S'incrire</span>
-                  </Link>
-                </div>
-                <div className="w-100">
+
+              {/* RGPD Consent */}
+              <div className="form-check mt-3 text-start">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="rgpdConsent"
+                  required
+                />
+                <label className="form-check-label ms-2" htmlFor="rgpdConsent">
+                  J'accepte la collecte et le traitement de mes données personnelles conformément à la{" "}
                   <a
-                    href="#login"
-                    data-bs-toggle="modal"
-                    className="btn-link fw-6 w-100 link"
+                    href="/privacy-policy"
+                    target="_blank"
+                    className="text-primary text-decoration-underline"
                   >
-                    Vous avez déjà un compte ? Connectez-vous ici
-                    <i className="icon icon-arrow1-top-left" />
-                  </a>
-                </div>
+                    politique de confidentialité
+                  </a>{" "}
+                  du site.
+                </label>
+              </div>
+
+              {/* ✅ Consentement aux offres et emails */}
+              <div className="form-check text-start">
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="newsletterConsent"
+                  name="newsletterConsent"
+                />
+                <label
+                  className="form-check-label ms-2"
+                  htmlFor="newsletterConsent"
+                >
+                  Êtes-vous d'accord pour recevoir des emails et des offres promotionnelles de la part de Cyna ?
+                </label>
+              </div>
+
+              {/* Buttons */}
+              <div className="d-flex flex-column gap-2 mt-3">
+                <button
+                  type="submit"
+                  className="tf-btn btn-fill animate-hover-btn radius-3 w-100 justify-content-center"
+                >
+                  S'inscrire
+                </button>
+                <a
+                  href="#login"
+                  data-bs-toggle="modal"
+                  className="btn-link fw-6 text-center"
+                >
+                  Vous avez déjà un compte ? Connectez-vous ici
+                  <i className="icon icon-arrow1-top-left ms-1" />
+                </a>
               </div>
             </form>
           </div>

@@ -12,6 +12,7 @@
     "@google/model-viewer": "^3.5.0",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.2",
+    "bootstrap-icons": "^1.11.3",
     "drift-zoom": "^1.5.1",
     "next": "^15.2.0",
     "photoswipe": "^5.4.4",
