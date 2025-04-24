@@ -45,7 +45,6 @@ model User {
   image         String?
   customerId    String?   // Stripe customer ID
   priceId       String?   // Stripe price ID
-  hasAccess     Boolean   @default(false)
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   role          UserRole  @default(USER)
@@ -54,6 +53,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   cart          Cart[]
+  purchases     Purchase[] // User's purchased articles
 }
 
 
@@ -61,6 +61,7 @@ enum UserRole {
   ADMIN
   USER
 }
+
 model VerificationToken {
   identifier String
   token      String   @unique
@@ -78,13 +79,27 @@ model Lead {
 
 
 model Articles {
-  id        String   @id @default(cuid())
-  title     String
+  id          String     @id @default(cuid())
+  title       String
   description String
-  image     String?
-  category  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  image       String?
+  category    String
+  price       Float      @default(0)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  purchases   Purchase[] // Users who purchased this article
+}
+
+model Purchase {
+  id         String   @id @default(cuid())
+  userId     String
+  articleId  String
+  purchaseDate DateTime @default(now())
+  
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  article    Articles @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  
+  @@unique([userId, articleId])
 }
 
 model Cart {
