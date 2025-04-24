@@ -53,11 +53,13 @@ model User {
   consentMarketing Boolean @default(true)
   consentAnalytics Boolean @default(true)
   consentThirdParty Boolean @default(false)
+  dataRetentionPeriod String @default("2_years")  // How long we keep user data
   
   accounts      Account[]
   sessions      Session[]
   cart          Cart[]
   purchases     Purchase[] // User's purchased articles
+  consentHistory ConsentHistory[] // Track consent history
 }
 
 
@@ -114,4 +116,17 @@ model Cart {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+// Track user consent history
+model ConsentHistory {
+  id            String    @id @default(cuid())
+  userId        String
+  consentType   String    // "marketing", "analytics", "thirdParty"
+  status        Boolean   // true for granted, false for revoked
+  timestamp     DateTime  @default(now())
+  ipAddress     String?   // Store IP address for audit purposes
+  userAgent     String?   // Store browser/device info
+  
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
