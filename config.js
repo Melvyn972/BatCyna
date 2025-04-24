@@ -31,6 +31,8 @@ const config = {
         price: 79,
         // If you have an anchor price (i.e. $29) that you want to display crossed out, put it here. Otherwise, leave it empty
         priceAnchor: 99,
+        // The article ID associated with this plan (used in Stripe webhook to grant access)
+        articleId: "cltest1234", // Replace with actual article ID
         features: [
           {
             name: "NextJS boilerplate",
@@ -51,6 +53,8 @@ const config = {
         description: "You need more power",
         price: 99,
         priceAnchor: 149,
+        // The article ID associated with this plan (used in Stripe webhook to grant access)
+        articleId: "cltest5678", // Replace with actual article ID
         features: [
           {
             name: "NextJS boilerplate",
