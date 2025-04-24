@@ -3,10 +3,6 @@
 import { useState, useRef } from "react";
 import Image from "next/image";
 
-// The features array is a list of features that will be displayed in the accordion.
-// - title: The title of the feature
-// - description: The description of the feature (when clicked)
-// - icon: The path to the icon for the feature
 const features = [
   {
     title: "Détection & Réponse aux Menaces",
@@ -34,7 +30,6 @@ const features = [
   },
 ];
 
-// An SEO-friendly accordion component including the title and a description (when clicked.)
 const Item = ({ feature, isActive, onClick, index }) => {
   const accordion = useRef(null);
   const { title, description } = feature;
@@ -75,7 +70,6 @@ const Item = ({ feature, isActive, onClick, index }) => {
   );
 };
 
-// A component to display a visual representation of the feature
 const Media = ({ feature }) => {
   return (
     <div className="rounded-2xl aspect-square w-full sm:w-[26rem] bg-base-200 flex items-center justify-center">
@@ -92,8 +86,6 @@ const Media = ({ feature }) => {
   );
 };
 
-// A component to display 2 to 5 features in an accordion.
-// By default, the first feature is selected. When a feature is clicked, the others are closed.
 const FeaturesAccordion = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -102,7 +94,6 @@ const FeaturesAccordion = () => {
       className="py-24 md:py-32 bg-gradient-to-b from-base-100 to-base-200 dark:bg-black text-base-content dark:text-white relative overflow-hidden"
       id="features"
     >
-      {/* Background elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-base-100 via-base-100 to-base-200/90 dark:from-black dark:via-black dark:to-gray-900 opacity-80 z-0"></div>
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-base-300 dark:via-gray-800 to-transparent"></div>
       

@@ -4,15 +4,11 @@ import config from "@/config";
 import logo from "@/app/icon.png";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
-// Add the Footer to the bottom of your landing page and more.
-// The support link is connected to the config.js file. If there's no config.resend.supportEmail, the link won't be displayed.
-
 const Footer = () => {
   return (
     <footer className="py-14 dark:bg-black bg-gray-50">
       <div className="container px-6 md:px-10 mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {/* Logo and brand description */}
           <div className="space-y-5">
             <Link
               className="flex items-center gap-3"
@@ -48,58 +44,35 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Links */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
-            {/* Company */}
             <div>
               <h3 className="font-medium dark:text-white text-gray-900 mb-4">Entreprise</h3>
               <ul className="space-y-3">
                 <li>
                   <Link href="/about" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">À propos</Link>
                 </li>
-                <li>
-                  <Link href="/careers" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">Carrières</Link>
-                </li>
-                <li>
-                  <Link href="/blog" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">Blog</Link>
-                </li>
               </ul>
               </div>
 
-            {/* Product */}
             <div>
               <h3 className="font-medium dark:text-white text-gray-900 mb-4">Produit</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/#features" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">Fonctionnalités</Link>
-                </li>
-                <li>
-                  <Link href="/#pricing" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">Tarifs</Link>
-                </li>
-                <li>
-                  <Link href="/#testimonials" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">Témoignages</Link>
+                  <Link href="/#pricing" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">Boutique</Link>
                 </li>
               </ul>
             </div>
 
-            {/* Resources */}
             <div>
               <h3 className="font-medium dark:text-white text-gray-900 mb-4">Ressources</h3>
               <ul className="space-y-3">
                 <li>
-                  <Link href="/help" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">Centre d'aide</Link>
-                </li>
-                <li>
                   <Link href="/contact" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">Contact</Link>
-                </li>
-                <li>
-                  <Link href="/documentation" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">Documentation</Link>
                 </li>
               </ul>
             </div>
               </div>
 
-          {/* Newsletter */}
           <div>
             <h3 className="font-medium dark:text-white text-gray-900 mb-4">Restez informé</h3>
             <p className="text-sm dark:text-gray-400 text-gray-600 mb-4">

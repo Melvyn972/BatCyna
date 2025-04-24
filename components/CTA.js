@@ -1,14 +1,11 @@
-import config from "@/config";
 
 const CTA = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-base-100 to-base-200 dark:bg-black py-24 lg:py-36">
-      {/* Éléments de fond décoratifs */}
       <div className="absolute inset-0 bg-gradient-to-br from-purple-300/20 via-blue-300/20 to-transparent dark:from-purple-900/20 dark:to-blue-900/20 z-0"></div>
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-purple-300/20 to-transparent dark:from-purple-500/10 dark:to-transparent rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-300/20 to-transparent dark:from-blue-500/10 dark:to-transparent rounded-full blur-3xl"></div>
       
-      {/* Grille décorative */}
       <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
       
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
