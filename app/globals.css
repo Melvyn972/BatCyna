@@ -5,6 +5,8 @@
 html,
 body {
   scroll-behavior: smooth !important;
+  background-color: black;
+  color: white;
 }
 
 /* It makes the HTML progress bar filling smooth when value change. */
@@ -18,5 +20,50 @@ progress::-webkit-progress-value {
   }
   .btn {
     @apply !capitalize;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gray-800 rounded-full hover:bg-gray-700 transition-colors;
+  }
+  
+  ::selection {
+    @apply bg-purple-500/20 text-white;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-xl hover:shadow-purple-500/5 hover:-translate-y-1;
+  }
+  
+  .glow {
+    box-shadow: 0 0 20px 5px rgba(149, 76, 233, 0.2);
+  }
+  
+  .glow-blue {
+    box-shadow: 0 0 20px 5px rgba(59, 130, 246, 0.2);
+  }
+}
+
+@layer utilities {
+  .mask-radial {
+    mask-image: radial-gradient(circle at center, black, transparent 80%);
+  }
+  
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
   }
 }

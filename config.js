@@ -7,7 +7,7 @@ const config = {
   appDescription:
     "CYNA est un pure player en cybersécurité pour les PME et MSP. La qualité de service est au cœur de notre métier, où nous privilégions l'expertise, la proximité et la rapidité d'exécution. ",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
-  domainName: "cyna.fr",
+  domainName: "localhost:3000",
   crisp: {
     // Crisp website ID. IF YOU DON'T USE CRISP: just remove this => Then add a support email in this config file (resend.supportEmail) otherwise customer support won't work.
     id: "",
