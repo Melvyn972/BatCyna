@@ -5,7 +5,7 @@ const config = {
   appName: "Cyna",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. ",
+    "CYNA est un pure player en cybersécurité pour les PME et MSP. La qualité de service est au cœur de notre métier, où nous privilégions l'expertise, la proximité et la rapidité d'exécution. ",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
   domainName: "localhost:3000",
   crisp: {
@@ -87,7 +87,7 @@ const config = {
   },
   auth: {
     // REQUIRED — the path to log in users. It's use to protect private routes (like /dashboard). It's used in apiClient (/libs/api.js) upon 401 errors from our API
-    loginUrl: "/api/auth/signin",
+    loginUrl: "/auth/login",
     // REQUIRED — the path you want to redirect users after successfull login (i.e. /dashboard, /private). This is normally a private page for users to manage their accounts. It's used in apiClient (/libs/api.js) upon 401 errors from our API & in ButtonSignin.js
     callbackUrl: "/dashboard",
   },

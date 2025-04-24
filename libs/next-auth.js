@@ -8,6 +8,7 @@ export const authOptions = {
   // Set any random key in .env.local
   secret: process.env.NEXTAUTH_SECRET,
   providers: [
+    
     GoogleProvider({
       // Follow the "Login with Google" tutorial to get your credentials
       clientId: process.env.GOOGLE_ID,
@@ -25,14 +26,18 @@ export const authOptions = {
     // Follow the "Login with Email" tutorial to set up your email server
     EmailProvider({
       server: {
-        host: "smtp.resend.com",
-        port: 465,
+        host: process.env.SMTP_HOST,
+        port: 587,
+        secure: false,
         auth: {
-          user: "resend",
-          pass: process.env.RESEND_API_KEY,
+          user: process.env.SMTP_USER,
+          pass: process.env.SMTP_PASSWORD,
         },
+        tls: {
+          rejectUnauthorized: false
+        }
       },
-      from: config.resend.fromNoReply,
+      from: process.env.SMTP_USER,
     }),
   ],
   // Using Prisma adapter for authentication

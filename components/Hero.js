@@ -13,7 +13,7 @@ const Hero = () => {
         <p className="text-lg opacity-80 leading-relaxed">
          Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra arcu lorem, quis semper orci elementum eu. 
         </p>
-        <Link className="btn btn-primary btn-wide" href="/auth/signin">
+        <Link className="btn btn-primary btn-wide" href="/auth/login">
           Login to {config.appName}
         </Link>
 
