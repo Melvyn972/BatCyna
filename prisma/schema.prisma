@@ -48,7 +48,11 @@ model User {
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   role          UserRole  @default(USER)
-
+  phone         String?
+  address       String?
+  consentMarketing Boolean @default(true)
+  consentAnalytics Boolean @default(true)
+  consentThirdParty Boolean @default(false)
   
   accounts      Account[]
   sessions      Session[]
