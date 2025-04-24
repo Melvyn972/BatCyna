@@ -59,7 +59,7 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      scrolled ? 'dark:bg-black/80 bg-white/80 backdrop-blur-lg py-3' : 'bg-transparent py-6'
+      scrolled ? 'bg-base-100/80 dark:bg-black/80 backdrop-blur-lg border-b border-base-200 dark:border-white/5 py-3' : 'bg-transparent py-6'
     }`}>
       <nav
         className="container flex items-center justify-between px-6 md:px-10 mx-auto"
@@ -81,7 +81,7 @@ const Header = () => {
               width={32}
               height={32}
             />
-            <span className="font-bold text-xl dark:text-white text-gray-900">{config.appName}</span>
+            <span className="font-bold text-xl text-base-content dark:text-white">{config.appName}</span>
           </Link>
         </div>
         
@@ -91,7 +91,7 @@ const Header = () => {
             <ThemeToggle />
           <button
             type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md dark:text-white text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 transition-colors"
+              className="inline-flex items-center justify-center p-2 rounded-md text-base-content dark:text-white hover:text-primary dark:hover:text-gray-300 transition-colors"
             onClick={() => setIsOpen(true)}
           >
               <span className="sr-only">Ouvrir le menu</span>
@@ -119,7 +119,7 @@ const Header = () => {
             <Link
               href={link.href}
               key={link.href}
-              className="dark:text-white/80 text-gray-700 dark:hover:text-white hover:text-gray-900 transition-colors text-sm font-medium"
+              className="text-base-content/80 dark:text-white/80 hover:text-base-content dark:hover:text-white transition-colors text-sm font-medium"
               title={link.label}
             >
               {link.label}
@@ -132,7 +132,7 @@ const Header = () => {
           <ThemeToggle />
           <Link
             href="/auth/login"
-            className="px-5 py-2.5 dark:bg-white dark:text-black bg-gray-900 text-white dark:hover:bg-gray-200 hover:bg-gray-800 text-sm font-medium rounded-full transition-all"
+            className="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:shadow-lg text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 text-sm font-medium rounded-full transition-all"
           >
             Commencer
           </Link>
@@ -141,8 +141,8 @@ const Header = () => {
 
       {/* Mobile menu */}
       <div className={`fixed inset-0 z-50 ${isOpen ? "block" : "hidden"}`}>
-        <div className="fixed inset-0 dark:bg-black/60 bg-gray-800/50 backdrop-blur-lg" onClick={() => setIsOpen(false)}></div>
-        <div className="fixed inset-y-0 right-0 w-full max-w-sm dark:bg-black bg-white p-6 overflow-y-auto transform transition-all duration-300">
+        <div className="fixed inset-0 bg-base-300/50 dark:bg-black/60 backdrop-blur-lg" onClick={() => setIsOpen(false)}></div>
+        <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-gradient-to-b from-base-100 to-base-200 dark:bg-black p-6 overflow-y-auto transform transition-all duration-300">
           <div className="flex items-center justify-between mb-8">
             <Link
               className="flex items-center gap-3"
@@ -159,14 +159,14 @@ const Header = () => {
                 width={32}
                 height={32}
               />
-              <span className="font-bold text-xl dark:text-white text-gray-900">{config.appName}</span>
+              <span className="font-bold text-xl text-base-content dark:text-white">{config.appName}</span>
             </Link>
             
             <div className="flex items-center gap-3">
               <ThemeToggle />
             <button
               type="button"
-                className="dark:text-white text-gray-800 dark:hover:text-gray-300 hover:text-gray-600 transition-colors"
+                className="text-base-content dark:text-white hover:text-primary dark:hover:text-gray-300 transition-colors"
               onClick={() => setIsOpen(false)}
             >
                 <span className="sr-only">Fermer le menu</span>
@@ -193,7 +193,7 @@ const Header = () => {
                   <Link
                     href={link.href}
                     key={link.href}
-                className="dark:text-white/80 text-gray-700 dark:hover:text-white hover:text-gray-900 transition-colors text-lg font-medium"
+                className="text-base-content/80 dark:text-white/80 hover:text-base-content dark:hover:text-white transition-colors text-lg font-medium"
                     title={link.label}
                 onClick={() => setIsOpen(false)}
                   >
@@ -204,7 +204,7 @@ const Header = () => {
             <div className="mt-8">
               <Link
                 href="/auth/login"
-                className="inline-block w-full px-5 py-3 dark:bg-white dark:text-black bg-gray-900 text-white dark:hover:bg-gray-200 hover:bg-gray-800 text-center font-medium rounded-full transition-all"
+                className="inline-block w-full px-5 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:shadow-lg text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 text-center font-medium rounded-full transition-all"
                 onClick={() => setIsOpen(false)}
               >
                 Commencer

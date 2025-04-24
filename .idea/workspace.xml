@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1472034f-5cc0-4f41-a6c9-cd059891f82a" name="Changes" comment="" />
+    <list default="true" id="1472034f-5cc0-4f41-a6c9-cd059891f82a" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/auth/login/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/login/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/CTA.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CTA.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FAQ.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/FAQ.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FeaturesAccordion.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/FeaturesAccordion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Hero.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Hero.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Problem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Problem.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -44,7 +57,9 @@
     "js.debugger.nextJs.config.created.client": "true",
     "js.debugger.nextJs.config.created.server": "true",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "vue.rearranger.settings.migration": "true"
   }

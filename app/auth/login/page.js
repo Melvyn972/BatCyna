@@ -188,16 +188,6 @@ export default function LoginPage() {
               </button>
             </div>
           </form>
-
-          <div className="mt-4">
-            <button
-              type="button"
-              onClick={handleEmailLogin}
-              className="w-full text-sm text-center text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors py-2"
-            >
-              Utiliser un lien de connexion magique
-            </button>
-          </div>
           
           <div className="mt-6 text-center dark:text-gray-300 text-gray-500 text-sm">
             Vous n'avez pas de compte?{" "}

@@ -135,10 +135,10 @@ const Footer = () => {
           </div>
           
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="/privacy" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">
+            <Link href="/privacy-policy" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">
               Politique de confidentialité
             </Link>
-            <Link href="/terms" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">
+            <Link href="/tos" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">
               Conditions d'utilisation
             </Link>
           </div>

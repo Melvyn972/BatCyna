@@ -82,8 +82,8 @@ export default function RegisterPage() {
                 </svg>
               </div>
               <div>
-                <h3 className="dark:text-white text-gray-900 font-medium mb-1">Essai gratuit</h3>
-                <p className="dark:text-gray-400 text-gray-600 text-sm">14 jours d'essai gratuit avec toutes les fonctionnalités premium disponibles.</p>
+                <h3 className="dark:text-white text-gray-900 font-medium mb-1">C'est partie</h3>
+                <p className="dark:text-gray-400 text-gray-600 text-sm">Commencé avec toutes les fonctionnalités premium disponibles.</p>
               </div>
             </div>
           </div>
@@ -132,7 +132,7 @@ export default function RegisterPage() {
           <div className="max-w-md mx-auto">
             <div className="mb-8">
               <h1 className="text-3xl md:text-4xl font-bold mb-2 dark:text-white text-gray-900">Créer un compte</h1>
-              <p className="dark:text-gray-300 text-gray-600">Commencez votre essai gratuit de 14 jours</p>
+              <p className="dark:text-gray-300 text-gray-600">Commencez votre dès maintenant</p>
             </div>
             
             <button 
