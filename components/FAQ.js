@@ -7,22 +7,35 @@ import { useRef, useState } from "react";
 
 const faqList = [
   {
-    question: "What do I get exactly?",
-    answer: <div className="space-y-2 leading-relaxed">Loreum Ipseum</div>,
+    question: "How does CynaStore protect against zero-day threats?",
+    answer: (
+      <div className="space-y-2 leading-relaxed">
+        Our AI-powered threat detection engine continuously analyzes behavioral patterns across your network and endpoints to identify anomalous activities, even from previously unknown threats. Unlike signature-based solutions, we don't rely solely on known threat indicators, allowing us to detect and respond to sophisticated zero-day attacks before they cause damage.
+      </div>
+    ),
   },
   {
-    question: "Can I get a refund?",
+    question: "Is CynaStore compliant with industry regulations?",
     answer: (
       <p>
-        Yes! You can request a refund within 7 days of your purchase. Reach out
-        by email.
+        Absolutely. CynaStore is designed with compliance at its core, supporting GDPR, HIPAA, SOC 2, ISO 27001, and other major regulatory frameworks. Our platform not only helps you achieve compliance but also maintains required documentation and evidence for audits, reducing your compliance burden by up to 70%.
       </p>
     ),
   },
   {
-    question: "I have another question",
+    question: "How long does it take to implement CynaStore?",
     answer: (
-      <div className="space-y-2 leading-relaxed">Cool, contact us by email</div>
+      <div className="space-y-2 leading-relaxed">
+        Most organizations are fully operational with CynaStore within 5-7 business days. Our streamlined onboarding process includes dedicated implementation specialists who handle the technical setup while your team receives comprehensive training. Unlike traditional security solutions that can take months to deploy, CynaStore's cloud-native architecture enables rapid integration with your existing infrastructure.
+      </div>
+    ),
+  },
+  {
+    question: "What makes CynaStore different from traditional security providers?",
+    answer: (
+      <div className="space-y-2 leading-relaxed">
+        CynaStore delivers enterprise-grade security through a SaaS model that eliminates the complexity and overhead of traditional solutions. We combine advanced technology with human expertise through our 24/7 Security Operations Center, providing comprehensive protection without requiring you to build an in-house security team. Our platform continuously evolves through AI learning, ensuring you're protected against emerging threats.
+      </div>
     ),
   },
 ];
@@ -94,7 +107,7 @@ const FAQ = () => {
         <div className="flex flex-col text-left basis-1/2">
           <p className="inline-block font-semibold text-primary mb-4">FAQ</p>
           <p className="sm:text-4xl text-3xl font-extrabold text-base-content">
-            Frequently Asked Questions
+            Security Questions Answered
           </p>
         </div>
 
