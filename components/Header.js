@@ -5,17 +5,22 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ButtonSignin from "./ButtonSignin";
+import ThemeToggle from "@/app/components/ThemeToggle";
 import logo from "@/app/icon.png";
 import config from "@/config";
 
 const links = [
   {
+    href: "/#features",
+    label: "Fonctionnalités",
+  },
+  {
     href: "/#pricing",
-    label: "Pricing",
+    label: "Tarifs",
   },
   {
     href: "/#testimonials",
-    label: "Reviews",
+    label: "Témoignages",
   },
   {
     href: "/#faq",
@@ -30,52 +35,73 @@ const cta = <ButtonSignin extraStyle="btn-primary" />;
 const Header = () => {
   const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // setIsOpen(false) when the route changes (i.e: when the user clicks on a link on mobile)
+  // setIsOpen(false) when the route changes
   useEffect(() => {
     setIsOpen(false);
   }, [searchParams]);
 
+  // Handle scroll effect
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [scrolled]);
+
   return (
-    <header className="bg-base-200">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled ? 'dark:bg-black/80 bg-white/80 backdrop-blur-lg py-3' : 'bg-transparent py-6'
+    }`}>
       <nav
-        className="container flex items-center justify-between px-8 py-4 mx-auto"
+        className="container flex items-center justify-between px-6 md:px-10 mx-auto"
         aria-label="Global"
       >
-        {/* Your logo/name on large screens */}
-        <div className="flex lg:flex-1">
+        {/* Logo */}
+        <div className="flex">
           <Link
-            className="flex items-center gap-2 shrink-0 "
+            className="flex items-center gap-3"
             href="/"
             title={`${config.appName} hompage`}
           >
             <Image
               src={logo}
               alt={`${config.appName} logo`}
-              className="w-8"
+              className="w-8 h-8"
               placeholder="blur"
               priority={true}
               width={32}
               height={32}
             />
-            <span className="font-extrabold text-lg">{config.appName}</span>
+            <span className="font-bold text-xl dark:text-white text-gray-900">{config.appName}</span>
           </Link>
         </div>
-        {/* Burger button to open menu on mobile */}
+        
+        {/* Burger menu button */}
         <div className="flex lg:hidden">
+          <div className="flex items-center gap-3">
+            <ThemeToggle />
           <button
             type="button"
-            className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5"
+              className="inline-flex items-center justify-center p-2 rounded-md dark:text-white text-gray-800 hover:text-gray-500 dark:hover:text-gray-300 transition-colors"
             onClick={() => setIsOpen(true)}
           >
-            <span className="sr-only">Open main menu</span>
+              <span className="sr-only">Ouvrir le menu</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6 text-base-content"
+                className="w-6 h-6"
             >
               <path
                 strokeLinecap="round"
@@ -84,15 +110,16 @@ const Header = () => {
               />
             </svg>
           </button>
+          </div>
         </div>
 
-        {/* Your links on large screens */}
-        <div className="hidden lg:flex lg:justify-center lg:gap-12 lg:items-center">
+        {/* Desktop navigation */}
+        <div className="hidden lg:flex lg:items-center lg:gap-10">
           {links.map((link) => (
             <Link
               href={link.href}
               key={link.href}
-              className="link link-hover"
+              className="dark:text-white/80 text-gray-700 dark:hover:text-white hover:text-gray-900 transition-colors text-sm font-medium"
               title={link.label}
             >
               {link.label}
@@ -100,39 +127,49 @@ const Header = () => {
           ))}
         </div>
 
-        {/* CTA on large screens */}
-        <div className="hidden lg:flex lg:justify-end lg:flex-1">{cta}</div>
+        {/* CTA button and Theme Toggle */}
+        <div className="hidden lg:flex lg:items-center lg:gap-3">
+          <ThemeToggle />
+          <Link
+            href="/auth/login"
+            className="px-5 py-2.5 dark:bg-white dark:text-black bg-gray-900 text-white dark:hover:bg-gray-200 hover:bg-gray-800 text-sm font-medium rounded-full transition-all"
+          >
+            Commencer
+          </Link>
+        </div>
       </nav>
 
-      {/* Mobile menu, show/hide based on menu state. */}
-      <div className={`relative z-50 ${isOpen ? "" : "hidden"}`}>
-        <div
-          className={`fixed inset-y-0 right-0 z-10 w-full px-8 py-4 overflow-y-auto bg-base-200 sm:max-w-sm sm:ring-1 sm:ring-neutral/10 transform origin-right transition ease-in-out duration-300`}
-        >
-          {/* Your logo/name on small screens */}
-          <div className="flex items-center justify-between">
+      {/* Mobile menu */}
+      <div className={`fixed inset-0 z-50 ${isOpen ? "block" : "hidden"}`}>
+        <div className="fixed inset-0 dark:bg-black/60 bg-gray-800/50 backdrop-blur-lg" onClick={() => setIsOpen(false)}></div>
+        <div className="fixed inset-y-0 right-0 w-full max-w-sm dark:bg-black bg-white p-6 overflow-y-auto transform transition-all duration-300">
+          <div className="flex items-center justify-between mb-8">
             <Link
-              className="flex items-center gap-2 shrink-0 "
-              title={`${config.appName} hompage`}
+              className="flex items-center gap-3"
               href="/"
+              title={`${config.appName} hompage`}
+              onClick={() => setIsOpen(false)}
             >
               <Image
                 src={logo}
                 alt={`${config.appName} logo`}
-                className="w-8"
+                className="w-8 h-8"
                 placeholder="blur"
                 priority={true}
                 width={32}
                 height={32}
               />
-              <span className="font-extrabold text-lg">{config.appName}</span>
+              <span className="font-bold text-xl dark:text-white text-gray-900">{config.appName}</span>
             </Link>
+            
+            <div className="flex items-center gap-3">
+              <ThemeToggle />
             <button
               type="button"
-              className="-m-2.5 rounded-md p-2.5"
+                className="dark:text-white text-gray-800 dark:hover:text-gray-300 hover:text-gray-600 transition-colors"
               onClick={() => setIsOpen(false)}
             >
-              <span className="sr-only">Close menu</span>
+                <span className="sr-only">Fermer le menu</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -148,27 +185,31 @@ const Header = () => {
                 />
               </svg>
             </button>
+            </div>
           </div>
 
-          {/* Your links on small screens */}
-          <div className="flow-root mt-6">
-            <div className="py-4">
-              <div className="flex flex-col gap-y-4 items-start">
+          <div className="flex flex-col gap-y-6 mt-10">
                 {links.map((link) => (
                   <Link
                     href={link.href}
                     key={link.href}
-                    className="link link-hover"
+                className="dark:text-white/80 text-gray-700 dark:hover:text-white hover:text-gray-900 transition-colors text-lg font-medium"
                     title={link.label}
+                onClick={() => setIsOpen(false)}
                   >
                     {link.label}
                   </Link>
                 ))}
-              </div>
+            
+            <div className="mt-8">
+              <Link
+                href="/auth/login"
+                className="inline-block w-full px-5 py-3 dark:bg-white dark:text-black bg-gray-900 text-white dark:hover:bg-gray-200 hover:bg-gray-800 text-center font-medium rounded-full transition-all"
+                onClick={() => setIsOpen(false)}
+              >
+                Commencer
+              </Link>
             </div>
-            <div className="divider"></div>
-            {/* Your CTA on small screens */}
-            <div className="flex flex-col">{cta}</div>
           </div>
         </div>
       </div>

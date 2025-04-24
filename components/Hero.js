@@ -1,32 +1,56 @@
 import Image from "next/image";
-import TestimonialsAvatars from "./TestimonialsAvatars";
-import config from "@/config";
 import Link from "next/link";
+import config from "@/config";
 
 const Hero = () => {
   return (
-    <section className="max-w-7xl mx-auto bg-base-100 flex flex-col lg:flex-row items-center justify-center gap-16 lg:gap-20 px-8 py-8 lg:py-20">
-      <div className="flex flex-col gap-10 lg:gap-14 items-center justify-center text-center lg:text-left lg:items-start">
-        <h1 className="font-extrabold text-4xl lg:text-6xl tracking-tight md:-mb-4">
-          Ship your startup in days, not weeks
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center bg-black text-white overflow-hidden py-24">
+      {/* Fond avec gradient subtil */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-gray-900 opacity-90 z-0"></div>
+      
+      {/* Élément décoratif cercle */}
+      <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-purple-500/10 blur-3xl"></div>
+      <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-blue-500/10 blur-3xl"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 md:px-10 z-10 flex flex-col items-center text-center">
+        <span className="inline-block py-2 px-4 bg-white/10 backdrop-blur-md text-sm rounded-full mb-8">
+          ✨ Découvrez une nouvelle façon de créer
+        </span>
+        
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-300">
+          Élevez votre vision<br />en réalité digitale
         </h1>
-        <p className="text-lg opacity-80 leading-relaxed">
-         Lorem ipsum dolor sit amet, consectetur adipiscing elit. In viverra arcu lorem, quis semper orci elementum eu. 
+        
+        <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mb-12">
+          Transformez votre startup rapidement et efficacement avec des outils innovants et des solutions modernes.
         </p>
-        <Link className="btn btn-primary btn-wide" href="/auth/login">
-          Login to {config.appName}
+        
+        <div className="flex flex-col sm:flex-row gap-4 mb-16">
+          <Link 
+            href="/auth/login" 
+            className="btn px-8 py-4 bg-white text-black hover:bg-gray-200 transition-all rounded-full text-lg font-medium"
+          >
+            Commencer
+          </Link>
+          <Link 
+            href="#features" 
+            className="btn px-8 py-4 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white transition-all rounded-full text-lg font-medium"
+          >
+            Découvrir
         </Link>
+        </div>
 
-      </div>
-      <div className="lg:w-full">
+        <div className="relative w-full max-w-5xl overflow-hidden rounded-xl border border-white/10 shadow-2xl">
         <Image
           src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
-          alt="Product Demo"
-          className="w-full"
+            alt="Interface produit"
+            width={1200}
+            height={800}
+            className="w-full h-auto object-cover"
           priority={true}
-          width={500}
-          height={500}
         />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+        </div>
       </div>
     </section>
   );

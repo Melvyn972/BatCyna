@@ -1,137 +1,77 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Image from "next/image";
 
 // The features array is a list of features that will be displayed in the accordion.
 // - title: The title of the feature
 // - description: The description of the feature (when clicked)
-// - svg: The SVG icon for the feature
+// - icon: The path to the icon for the feature
 const features = [
   {
-    title: "Threat Detection & Response",
+    title: "Détection & Réponse aux Menaces",
     description:
-      "Advanced AI-powered threat detection identifies malicious behavior patterns in real-time. Our automated response system neutralizes threats before they impact your business operations.",
-    svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-6 h-6"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z"
-        />
-      </svg>
-    ),
+      "Détection avancée des menaces alimentée par l'IA qui identifie les comportements malveillants en temps réel. Notre système de réponse automatisé neutralise les menaces avant qu'elles n'impactent vos opérations.",
+    icon: "/icons/shield-check.svg",
   },
   {
-    title: "Compliance Automation",
+    title: "Automatisation de la Conformité",
     description:
-      "Stay compliant with GDPR, HIPAA, SOC 2, and other regulatory frameworks. Our platform automates documentation, audit trails, and security controls required for certification.",
-    svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-6 h-6"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-        />
-      </svg>
-    ),
+      "Restez conforme avec RGPD, HIPAA, SOC 2 et autres cadres réglementaires. Notre plateforme automatise la documentation, les pistes d'audit et les contrôles de sécurité requis pour la certification.",
+    icon: "/icons/certificate.svg",
   },
   {
-    title: "Security Operations Center",
+    title: "Centre d'Opérations de Sécurité",
     description:
-      "24/7 monitoring by security experts who analyze threats, validate alerts, and coordinate incident response. Our SOC team extends your security capabilities without the overhead of building an in-house team.",
-    svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-6 h-6"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5m.75-9l3-3 2.148 2.148A12.061 12.061 0 0116.5 7.605"
-        />
-      </svg>
-    ),
+      "Surveillance 24/7 par des experts en sécurité qui analysent les menaces, valident les alertes et coordonnent la réponse aux incidents. Notre équipe SOC étend vos capacités de sécurité sans les frais d'une équipe interne.",
+    icon: "/icons/monitor.svg",
   },
   {
-    title: "Vulnerability Management",
+    title: "Gestion des Vulnérabilités",
     description:
-      "Continuous scanning and prioritization of vulnerabilities based on risk level. Our platform provides clear remediation instructions and tracks the resolution process from detection to completion.",
-    svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-6 h-6"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M7.5 3.75H6A2.25 2.25 0 003.75 6v1.5M16.5 3.75H18A2.25 2.25 0 0120.25 6v1.5m0 9V18A2.25 2.25 0 0118 20.25h-1.5m-9 0H6A2.25 2.25 0 013.75 18v-1.5M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-        />
-      </svg>
-    ),
+      "Analyse continue et priorisation des vulnérabilités basées sur le niveau de risque. Notre plateforme fournit des instructions claires de remédiation et suit le processus de résolution de la détection à l'achèvement.",
+    icon: "/icons/search.svg",
   },
 ];
 
 // An SEO-friendly accordion component including the title and a description (when clicked.)
-const Item = ({ feature, isOpen, setFeatureSelected }) => {
+const Item = ({ feature, isActive, onClick, index }) => {
   const accordion = useRef(null);
-  const { title, description, svg } = feature;
+  const { title, description } = feature;
 
   return (
-    <li>
+    <div 
+      className={`border-b border-gray-800 relative transition-all duration-300 ${isActive ? 'bg-gradient-to-r from-black to-gray-900' : 'hover:bg-gray-900/30'}`}
+    >
       <button
-        className="relative flex gap-2 items-center w-full py-5 text-base font-medium text-left md:text-lg"
-        onClick={(e) => {
-          e.preventDefault();
-          setFeatureSelected();
-        }}
-        aria-expanded={isOpen}
+        className="w-full flex items-start justify-between py-6 px-6 text-left focus:outline-none"
+        onClick={onClick}
+        aria-expanded={isActive}
       >
-        <span className={`duration-100 ${isOpen ? "text-primary" : ""}`}>
-          {svg}
+        <div className="flex items-center gap-4">
+          <span className={`text-lg font-semibold transition-colors ${isActive ? 'text-white' : 'text-white/70'}`}>
+            {`0${index + 1}`}
         </span>
-        <span
-          className={`flex-1 text-base-content ${
-            isOpen ? "text-primary font-semibold" : ""
-          }`}
-        >
-          <h3 className="inline">{title}</h3>
+          <h3 className={`text-xl md:text-2xl font-medium transition-colors ${isActive ? 'text-white' : 'text-white/70'}`}>
+            {title}
+          </h3>
+        </div>
+        <span className={`transform transition-transform duration-300 ${isActive ? 'rotate-45' : 'rotate-0'}`}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 5V19M5 12H19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
         </span>
       </button>
 
       <div
         ref={accordion}
-        className={`transition-all duration-300 ease-in-out text-base-content-secondary overflow-hidden`}
-        style={
-          isOpen
-            ? { maxHeight: accordion?.current?.scrollHeight, opacity: 1 }
-            : { maxHeight: 0, opacity: 0 }
-        }
+        className={`overflow-hidden transition-all duration-500 ease-in-out ${isActive ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
       >
-        <div className="pb-5 leading-relaxed">{description}</div>
+        <div className="pb-8 pt-2 px-6 pl-16 text-gray-300 leading-relaxed max-w-3xl">
+          {description}
+        </div>
       </div>
-    </li>
+    </div>
   );
 };
 
@@ -140,7 +80,13 @@ const Media = ({ feature }) => {
   return (
     <div className="rounded-2xl aspect-square w-full sm:w-[26rem] bg-base-200 flex items-center justify-center">
       <div className="text-6xl p-8 bg-base-100 rounded-full shadow-lg">
-        {feature.svg}
+        <Image
+          src={feature.icon || "/icons/shield-check.svg"}
+          alt={feature.title}
+          width={150}
+          height={150}
+          className="h-24 w-24 object-contain opacity-90"
+        />
       </div>
     </div>
   );
@@ -149,35 +95,63 @@ const Media = ({ feature }) => {
 // A component to display 2 to 5 features in an accordion.
 // By default, the first feature is selected. When a feature is clicked, the others are closed.
 const FeaturesAccordion = () => {
-  const [featureSelected, setFeatureSelected] = useState(0);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   return (
     <section
-      className="py-24 md:py-32 space-y-24 md:space-y-32 max-w-7xl mx-auto bg-base-100 "
+      className="py-24 md:py-32 bg-black text-white relative overflow-hidden"
       id="features"
     >
-      <div className="px-8">
-        <h2 className="font-extrabold text-4xl lg:text-6xl tracking-tight mb-12 md:mb-24">
-          Enterprise-grade security
-          <span className="bg-neutral text-neutral-content px-2 md:px-4 ml-1 md:ml-1.5 leading-relaxed whitespace-nowrap">
-            made accessible
+      {/* Background elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-black via-black to-gray-900 opacity-80 z-0"></div>
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent"></div>
+      
+      <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
+        <div className="max-w-3xl mb-16 md:mb-24">
+          <span className="inline-block py-1 px-3 text-xs bg-white/10 text-white rounded-full mb-6">
+            Fonctionnalités
           </span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
+            Sécurité de niveau entreprise,
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-500"> accessible à tous</span>
         </h2>
-        <div className=" flex flex-col md:flex-row gap-12 md:gap-24">
-          <div className="grid grid-cols-1 items-stretch gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-20">
-            <ul className="w-full">
-              {features.map((feature, i) => (
+          <p className="text-xl text-gray-300">
+            Protégez votre entreprise avec des solutions puissantes, intuitives et abordables.
+          </p>
+        </div>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="lg:col-span-7 order-2 lg:order-1">
+            <div className="border-t border-gray-800 rounded-sm">
+              {features.map((feature, index) => (
                 <Item
-                  key={feature.title}
-                  index={i}
+                  key={index}
                   feature={feature}
-                  isOpen={featureSelected === i}
-                  setFeatureSelected={() => setFeatureSelected(i)}
+                  index={index}
+                  isActive={activeIndex === index}
+                  onClick={() => setActiveIndex(index)}
                 />
               ))}
-            </ul>
+            </div>
+          </div>
 
-            <Media feature={features[featureSelected]} key={featureSelected} />
+          <div className="lg:col-span-5 order-1 lg:order-2 flex items-center justify-center">
+            <div className="w-full aspect-square max-w-md relative overflow-hidden rounded-2xl border border-gray-800 bg-gradient-to-br from-gray-900 to-black p-1">
+              <div className="w-full h-full bg-black rounded-xl flex items-center justify-center p-12">
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-xl blur-2xl"></div>
+                  <div className="w-full h-full flex items-center justify-center">
+                    <Image
+                      src={features[activeIndex].icon || "/icons/shield-check.svg"}
+                      alt={features[activeIndex].title}
+                      width={150}
+                      height={150}
+                      className="h-24 w-24 object-contain opacity-90"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
