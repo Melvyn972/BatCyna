@@ -5,10 +5,8 @@ import config from "@/config";
 const Hero = () => {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-base-100 to-base-200 dark:bg-black text-base-content dark:text-white overflow-hidden py-24">
-      {/* Fond avec gradient subtil */}
       <div className="absolute inset-0 bg-gradient-to-br from-base-100 via-base-100 to-base-200/90 dark:from-black dark:via-black dark:to-gray-900 opacity-90 z-0"></div>
       
-      {/* Élément décoratif cercle */}
       <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-purple-300/20 dark:bg-purple-500/10 blur-3xl"></div>
       <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-blue-300/20 dark:bg-blue-500/10 blur-3xl"></div>
       

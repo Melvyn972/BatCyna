@@ -2,9 +2,6 @@
 
 import { useRef, useState } from "react";
 
-// <FAQ> component is a lsit of <Item> component
-// Just import the FAQ & add your FAQ content to the const faqList
-
 const faqList = [
   {
     question: "Comment CynaStore protège-t-il contre les menaces zero-day?",
@@ -81,7 +78,6 @@ const FAQ = () => {
 
   return (
     <section className="bg-gradient-to-b from-base-100 to-base-200 dark:bg-black text-base-content dark:text-white relative overflow-hidden py-24 md:py-32" id="faq">
-      {/* Éléments de fond décoratifs */}
       <div className="absolute inset-0 bg-gradient-to-br from-base-100 via-base-100 to-base-200/90 dark:from-black dark:via-black dark:to-gray-900 opacity-95 z-0"></div>
       <div className="absolute top-40 right-20 w-72 h-72 rounded-full bg-purple-300/10 dark:bg-purple-500/5 blur-3xl"></div>
       <div className="absolute bottom-20 left-10 w-72 h-72 rounded-full bg-blue-300/10 dark:bg-blue-500/5 blur-3xl"></div>

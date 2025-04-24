@@ -4,16 +4,38 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1472034f-5cc0-4f41-a6c9-cd059891f82a" name="Changes" comment="">
+    <list default="true" id="1472034f-5cc0-4f41-a6c9-cd059891f82a" name="Changes" comment="theme 90%">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/auth/login/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/auth/login/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/BetterIcon.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ButtonAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ButtonAccount.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ButtonCheckout.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ButtonCheckout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ButtonGradient.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ButtonLead.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ButtonPopover.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ButtonSignin.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ButtonSignin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/ButtonSupport.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ButtonSupport.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/CTA.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/CTA.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/FAQ.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/FAQ.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/FeaturesAccordion.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/FeaturesAccordion.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FeaturesGrid.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/FeaturesListicle.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Hero.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Hero.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/LayoutClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/LayoutClient.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Modal.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Pricing.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Pricing.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/components/Problem.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Problem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Tabs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Testimonial1Small.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/TestimonialRating.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Testimonials1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Testimonials11.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Testimonials3.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/TestimonialsAvatars.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/WithWithout.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.js" beforeDir="false" afterPath="$PROJECT_DIR$/config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,6 +119,15 @@
       <workItem from="1745520273013" duration="8000" />
       <workItem from="1745520285622" duration="38000" />
     </task>
+    <task id="LOCAL-00001" summary="theme 90%">
+      <option name="closed" value="true" />
+      <created>1745524816955</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1745524816955</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -112,5 +143,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="theme 90%" />
+    <option name="LAST_COMMIT_MESSAGE" value="theme 90%" />
   </component>
 </project>
