@@ -1,22 +1,21 @@
 import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/libs/next-auth";
-import connectMongo from "@/libs/mongoose";
 import { createCustomerPortal } from "@/libs/stripe";
-import User from "@/models/User";
+import prisma from "@/libs/prisma";
 
 export async function POST(req) {
   const session = await getServerSession(authOptions);
 
   if (session) {
     try {
-      await connectMongo();
-
       const body = await req.json();
 
       const { id } = session.user;
 
-      const user = await User.findById(id);
+      const user = await prisma.user.findUnique({
+        where: { id }
+      });
 
       if (!user?.customerId) {
         return NextResponse.json(
