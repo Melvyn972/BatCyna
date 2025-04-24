@@ -5,7 +5,7 @@ const config = {
   appName: "Cyna",
   // REQUIRED: a short description of your app for SEO tags (can be overwritten)
   appDescription:
-    "lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. ",
+    "CYNA est un pure player en cybersécurité pour les PME et MSP. La qualité de service est au cœur de notre métier, où nous privilégions l'expertise, la proximité et la rapidité d'exécution. ",
   // REQUIRED (no https://, not trialing slash at the end, just the naked domain)
   domainName: "cyna.fr",
   crisp: {
