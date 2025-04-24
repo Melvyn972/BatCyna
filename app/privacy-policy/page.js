@@ -12,21 +12,21 @@ import config from "@/config";
 // You are an excellent lawyer.
 
 // I need your help to write a simple privacy policy for my website. Here is some context:
-// - Website: https://shipfa.st
-// - Name: ShipFast
-// - Description: A JavaScript code boilerplate to help entrepreneurs launch their startups faster
+// - Website: https://Cyna.fr
+// - Name: Cyna
+// - Description: CYNA est un pure player en cybersécurité pour les PME et MSP. La qualité de service est au cœur de notre métier, où nous privilégions l'expertise, la proximité et la rapidité d'exécution. It's a SAAS.
 // - User data collected: name, email and payment information
 // - Non-personal data collection: web cookies
 // - Purpose of Data Collection: Order processing
 // - Data sharing: we do not share the data with any other parties
 // - Children's Privacy: we do not collect any data from children
 // - Updates to the Privacy Policy: users will be updated by email
-// - Contact information: marc@shipfa.st
+// - Contact information: melvyn@gmail.com
 
 // Please write a simple privacy policy for my site. Add the current date.  Do not add or explain your reasoning. Answer:
 
 export const metadata = getSEOTags({
-  title: `Privacy Policy | ${config.appName}`,
+  title: `Politique de Confidentialité | ${config.appName}`,
   canonicalUrlRelative: "/privacy-policy",
 });
 
@@ -46,62 +46,60 @@ const PrivacyPolicy = () => {
               d="M15 10a.75.75 0 01-.75.75H7.612l2.158 1.96a.75.75 0 11-1.04 1.08l-3.5-3.25a.75.75 0 010-1.08l3.5-3.25a.75.75 0 111.04 1.08L7.612 9.25h6.638A.75.75 0 0115 10z"
               clipRule="evenodd"
             />
-          </svg>{" "}
-          Back
+          </svg>
+          Retour
         </Link>
         <h1 className="text-3xl font-extrabold pb-6">
-          Privacy Policy for {config.appName}
+          Politique de Confidentialité – {config.appName}
         </h1>
 
         <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: 2023-08-25
+{`Dernière mise à jour : 24 avril 2025
 
-Thank you for visiting ShipFast ("we," "us," or "our"). This Privacy Policy outlines how we collect, use, and protect your personal and non-personal information when you use our website located at https://shipfa.st (the "Website").
+Merci de visiter Cyna ("nous", "notre" ou "nos"). Cette Politique de Confidentialité décrit comment nous collectons, utilisons et protégeons vos informations personnelles et non personnelles lorsque vous utilisez notre site web accessible à l'adresse https://Cyna.fr ("le Site").
 
-By accessing or using the Website, you agree to the terms of this Privacy Policy. If you do not agree with the practices described in this policy, please do not use the Website.
+En accédant ou en utilisant le Site, vous acceptez les termes de cette Politique de Confidentialité.
 
-1. Information We Collect
+1. Données collectées
 
-1.1 Personal Data
+1.1 Données personnelles
 
-We collect the following personal information from you:
+Nous collectons les informations suivantes :
 
-Name: We collect your name to personalize your experience and communicate with you effectively.
-Email: We collect your email address to send you important information regarding your orders, updates, and communication.
-Payment Information: We collect payment details to process your orders securely. However, we do not store your payment information on our servers. Payments are processed by trusted third-party payment processors.
+- Nom : pour personnaliser votre expérience et faciliter la communication.
+- Adresse e-mail : pour vous envoyer des informations liées à vos commandes, notifications importantes, et communications.
+- Informations de paiement : pour traiter vos commandes de manière sécurisée. Ces données ne sont pas stockées sur nos serveurs et sont traitées via un prestataire de paiement sécurisé.
 
-1.2 Non-Personal Data
+1.2 Données non personnelles
 
-We may use web cookies and similar technologies to collect non-personal information such as your IP address, browser type, device information, and browsing patterns. This information helps us to enhance your browsing experience, analyze trends, and improve our services.
+Nous utilisons des cookies pour collecter des informations non personnelles telles que l'adresse IP, le type de navigateur, les informations sur l'appareil, et les habitudes de navigation. Cela nous aide à améliorer votre expérience, analyser les tendances et optimiser nos services.
 
-2. Purpose of Data Collection
+2. Finalité de la collecte
 
-We collect and use your personal data for the sole purpose of order processing. This includes processing your orders, sending order confirmations, providing customer support, and keeping you updated about the status of your orders.
+Les données collectées sont utilisées exclusivement pour le traitement des commandes, l’envoi de confirmations, le support client et le suivi des statuts de commande.
 
-3. Data Sharing
+3. Partage des données
 
-We do not share your personal data with any third parties except as required for order processing (e.g., sharing your information with payment processors). We do not sell, trade, or rent your personal information to others.
+Nous ne partageons vos données personnelles avec aucun tiers, sauf si cela est strictement nécessaire au traitement de votre commande (ex. : prestataire de paiement). Nous ne vendons, n’échangeons ou ne louons vos données à aucun tiers.
 
-4. Children's Privacy
+4. Protection des enfants
 
-ShipFast is not intended for children under the age of 13. We do not knowingly collect personal information from children. If you are a parent or guardian and believe that your child has provided us with personal information, please contact us at the email address provided below.
+Cyna ne s’adresse pas aux enfants de moins de 13 ans. Nous ne collectons pas sciemment de données personnelles auprès d’enfants. Si vous êtes un parent ou tuteur et que vous pensez que votre enfant nous a transmis des données personnelles, contactez-nous à l’adresse indiquée ci-dessous.
 
-5. Updates to the Privacy Policy
+5. Modifications de la politique
 
-We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. Any updates will be posted on this page, and we may notify you via email about significant changes.
+Cette Politique de Confidentialité peut être modifiée à tout moment. En cas de changement significatif, nous vous en informerons par e-mail. Les mises à jour seront également disponibles sur cette page.
 
-6. Contact Information
+6. Contact
 
-If you have any questions, concerns, or requests related to this Privacy Policy, you can contact us at:
+Pour toute question ou demande concernant cette Politique de Confidentialité, vous pouvez nous contacter à l'adresse suivante :
 
-Email: marc@shipfa.st
+Email : supportcyna@gmail.com
 
-For all other inquiries, please visit our Contact Us page on the Website.
-
-By using ShipFast, you consent to the terms of this Privacy Policy.`}
+En utilisant Cyna, vous acceptez les termes de cette Politique de Confidentialité.`}
         </pre>
       </div>
     </main>
@@ -109,3 +107,4 @@ By using ShipFast, you consent to the terms of this Privacy Policy.`}
 };
 
 export default PrivacyPolicy;
+
