@@ -74,13 +74,38 @@ export async function POST(req) {
           throw new Error("No user found");
         }
 
-        // Update user data + Grant user access to your product. It's a boolean in the database, but could be a number of credits, etc...
-        await prisma.user.update({
-          where: { id: user.id },
-          data: {
-            priceId: priceId,
-            customerId: customerId,
-            hasAccess: true,
+        // Update user data + Grant user access to purchased article or plan
+        await prisma.$transaction(async (tx) => {
+          // Update basic user data
+          await tx.user.update({
+            where: { id: user.id },
+            data: {
+              priceId: priceId,
+              customerId: customerId,
+            }
+          });
+          
+          // If plan contains an articleId, add it as a purchase
+          if (plan.articleId) {
+            // Check if the purchase already exists
+            const existingPurchase = await tx.purchase.findUnique({
+              where: {
+                userId_articleId: {
+                  userId: user.id,
+                  articleId: plan.articleId
+                }
+              }
+            });
+            
+            // Only create the purchase if it doesn't exist
+            if (!existingPurchase) {
+              await tx.purchase.create({
+                data: {
+                  userId: user.id,
+                  articleId: plan.articleId
+                }
+              });
+            }
           }
         });
 
@@ -110,7 +135,6 @@ export async function POST(req) {
       case "customer.subscription.deleted": {
         // The customer subscription stopped
         // ❌ Revoke access to the product
-        // The customer might have changed the plan (higher or lower plan, cancel soon etc...)
         const subscription = await stripe.subscriptions.retrieve(
           data.object.id
         );
@@ -119,11 +143,20 @@ export async function POST(req) {
         });
 
         if (user) {
-          // Revoke access to your product
-          await prisma.user.update({
-            where: { id: user.id },
-            data: { hasAccess: false }
-          });
+          // Find the article associated with this plan
+          const plan = configFile.stripe.plans.find(
+            (p) => p.priceId === user.priceId
+          );
+          
+          if (plan && plan.articleId) {
+            // Remove the purchase
+            await prisma.purchase.deleteMany({
+              where: {
+                userId: user.id,
+                articleId: plan.articleId
+              }
+            });
+          }
         }
 
         break;
@@ -143,11 +176,30 @@ export async function POST(req) {
           // Make sure the invoice is for the same plan (priceId) the user subscribed to
           if (user.priceId !== priceId) break;
 
-          // Grant user access to your product. It's a boolean in the database, but could be a number of credits, etc...
-          await prisma.user.update({
-            where: { id: user.id },
-            data: { hasAccess: true }
-          });
+          // Find the article associated with this plan
+          const plan = configFile.stripe.plans.find((p) => p.priceId === priceId);
+          
+          if (plan && plan.articleId) {
+            // Check if the purchase already exists
+            const existingPurchase = await prisma.purchase.findUnique({
+              where: {
+                userId_articleId: {
+                  userId: user.id,
+                  articleId: plan.articleId
+                }
+              }
+            });
+            
+            // Only create the purchase if it doesn't exist
+            if (!existingPurchase) {
+              await prisma.purchase.create({
+                data: {
+                  userId: user.id,
+                  articleId: plan.articleId
+                }
+              });
+            }
+          }
         }
 
         break;
