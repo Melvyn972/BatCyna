@@ -61,7 +61,7 @@ const features = [
   {
     title: "Authentication",
     description:
-      "Magic links setup, login with Google walkthrough, save user in MongoDB/Supabase, private/protected pages & API calls",
+      "Magic links setup, login with Google walkthrough, save user in Prisma/SQLite, private/protected pages & API calls",
     svg: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
