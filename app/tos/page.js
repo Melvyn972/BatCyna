@@ -12,21 +12,20 @@ import config from "@/config";
 // You are an excellent lawyer.
 
 // I need your help to write a simple Terms & Services for my website. Here is some context:
-// - Website: https://shipfa.st
-// - Name: ShipFast
-// - Contact information: marc@shipfa.st
-// - Description: A JavaScript code boilerplate to help entrepreneurs launch their startups faster
-// - Ownership: when buying a package, users can download code to create apps. They own the code but they do not have the right to resell it. They can ask for a full refund within 7 day after the purchase.
+// - Website: https://Cyna.fr
+// - Name: Cyna
+// - Contact information: melvyn@gmail.com
+// - Description: CYNA est un pure player en cybersécurité pour les PME et MSP. La qualité de service est au cœur de notre métier, où nous privilégions l'expertise, la proximité et la rapidité d'exécution. It's a SAAS.
 // - User data collected: name, email and payment information
 // - Non-personal data collection: web cookies
-// - Link to privacy-policy: https://shipfa.st/privacy-policy
+// - Link to privacy-policy: https://Cyna.fr/privacy-policy
 // - Governing Law: France
 // - Updates to the Terms: users will be updated by email
 
 // Please write a simple Terms & Services for my site. Add the current date. Do not add or explain your reasoning. Answer:
 
 export const metadata = getSEOTags({
-  title: `Terms and Conditions | ${config.appName}`,
+  title: `Conditions Générales d'Utilisation | ${config.appName}`,
   canonicalUrlRelative: "/tos",
 });
 
@@ -47,49 +46,51 @@ const TOS = () => {
               clipRule="evenodd"
             />
           </svg>
-          Back
+          Retour
         </Link>
         <h1 className="text-3xl font-extrabold pb-6">
-          Terms and Conditions for {config.appName}
+          Conditions Générales d'Utilisation – {config.appName}
         </h1>
 
         <pre
           className="leading-relaxed whitespace-pre-wrap"
           style={{ fontFamily: "sans-serif" }}
         >
-          {`Last Updated: September 26, 2023
+{`Dernière mise à jour : 24 avril 2025
 
-Welcome to ShipFast!
+Bienvenue sur Cyna.fr !
 
-These Terms of Service ("Terms") govern your use of the ShipFast website at https://shipfa.st ("Website") and the services provided by ShipFast. By using our Website and services, you agree to these Terms.
+Les présentes Conditions Générales d'Utilisation ("Conditions") s'appliquent à l'utilisation du site https://Cyna.fr ("le Site") ainsi qu'aux services SaaS proposés par la société Cyna, SAS. En accédant au Site ou en utilisant nos services, vous acceptez les présentes Conditions.
 
-1. Description of ShipFast
+1. Présentation de Cyna
 
-ShipFast is a platform that offers a JavaScript code boilerplate to assist entrepreneurs in launching their startups more efficiently.
+Cyna est un pure player en cybersécurité pour les PME et MSP. Nous plaçons la qualité de service au cœur de notre activité, en valorisant l'expertise, la proximité et la rapidité d'exécution.
 
-2. Ownership and Usage Rights
+2. Propriété intellectuelle
 
-When you purchase a package from ShipFast, you gain the right to download and use the code provided for creating applications. You own the code you create but do not have the right to resell it. We offer a full refund within 7 days of purchase, as specified in our refund policy.
+L'ensemble des contenus présents sur le Site, y compris les textes, visuels, logos et éléments techniques, sont la propriété exclusive de Cyna ou de ses partenaires. Toute reproduction ou utilisation non autorisée est interdite.
 
-3. User Data and Privacy
+3. Données personnelles
 
-We collect and store user data, including name, email, and payment information, as necessary to provide our services. For details on how we handle your data, please refer to our Privacy Policy at https://shipfa.st/privacy-policy.
+Nous collectons les données suivantes : nom, adresse e-mail et informations de paiement. Ces données sont nécessaires à la gestion de nos services. Pour en savoir plus, consultez notre politique de confidentialité : https://Cyna.fr/privacy-policy
 
-4. Non-Personal Data Collection
+4. Cookies
 
-We use web cookies to collect non-personal data for the purpose of improving our services and user experience.
+Nous utilisons des cookies pour améliorer l'expérience utilisateur, mesurer l’audience et optimiser notre service.
 
-5. Governing Law
+5. Droit applicable
 
-These Terms are governed by the laws of France.
+Les présentes Conditions sont régies par le droit français. En cas de litige, les tribunaux français seront seuls compétents.
 
-6. Updates to the Terms
+6. Modification des Conditions
 
-We may update these Terms from time to time. Users will be notified of any changes via email.
+Cyna peut modifier les présentes Conditions à tout moment. Toute mise à jour vous sera communiquée par e-mail.
 
-For any questions or concerns regarding these Terms of Service, please contact us at marc@shipfa.st.
+7. Contact
 
-Thank you for using ShipFast!`}
+Pour toute question concernant ces Conditions, veuillez nous contacter à : supportcyna@gmail.com
+
+Merci d’utiliser Cyna.`}
         </pre>
       </div>
     </main>
@@ -97,3 +98,4 @@ Thank you for using ShipFast!`}
 };
 
 export default TOS;
+
