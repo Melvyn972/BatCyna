@@ -79,7 +79,6 @@ export async function GET(request, { params }) {
               select: {
                 id: true,
                 title: true,
-                slug: true,
                 image: true,
                 price: true
               }
@@ -97,12 +96,10 @@ export async function GET(request, { params }) {
     }
 
     // Fetch all articles to provide context for purchase selection
-    const allArticles = await prisma.article.findMany({
-      where: { published: true },
+    const allArticles = await prisma.articles.findMany({
       select: {
         id: true,
         title: true,
-        slug: true,
         image: true,
         price: true
       },

@@ -19,7 +19,7 @@ export default function DeleteArticle({ params }) {
         const response = await fetch(`/api/admin/articles/${id}`);
         
         if (!response.ok) {
-          throw new Error('Article not found');
+          throw new Error('Article non trouvé');
         }
         
         const data = await response.json();
@@ -45,7 +45,7 @@ export default function DeleteArticle({ params }) {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to delete article');
+        throw new Error(errorData.message || 'Échec de la suppression de l\'article');
       }
 
       router.push('/dashboard/admin');
@@ -57,16 +57,24 @@ export default function DeleteArticle({ params }) {
   };
 
   if (loading) {
-    return <div className="text-center py-12">Loading article data...</div>;
+    return (
+      <div className="flex justify-center items-center py-12">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+        <span className="ml-3 text-gray-700 dark:text-gray-300">Chargement...</span>
+      </div>
+    );
   }
 
   if (error && !article) {
     return (
-      <div className="max-w-4xl mx-auto">
-        <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
-          <p>{error}</p>
-          <Link href="/dashboard/admin" className="font-medium underline mt-2 inline-block">
-            Return to Dashboard
+      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-soft rounded-xl p-6">
+        <div className="bg-red-100 dark:bg-red-900/30 border-l-4 border-red-500 text-red-700 dark:text-red-300 p-4 rounded" role="alert">
+          <p className="font-medium">{error}</p>
+          <Link href="/dashboard/admin" className="mt-3 inline-flex items-center text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Retour au tableau de bord
           </Link>
         </div>
       </div>
@@ -74,72 +82,108 @@ export default function DeleteArticle({ params }) {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Delete Article</h1>
-        <Link 
-          href="/dashboard/admin" 
-          className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
-        >
-          Back to Dashboard
-        </Link>
+    <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-soft rounded-xl overflow-hidden transition-all duration-200">
+      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Supprimer l'article</h1>
+          <Link 
+            href="/dashboard/admin" 
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Retour
+          </Link>
+        </div>
       </div>
 
       {error && (
-        <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
+        <div className="bg-red-100 dark:bg-red-900/30 border-l-4 border-red-500 text-red-700 dark:text-red-300 p-4 m-6 rounded" role="alert">
           <p>{error}</p>
         </div>
       )}
 
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <div className="text-center mb-6">
-          <div className="text-red-600 text-5xl mb-4">⚠️</div>
-          <h2 className="text-xl font-bold mb-2">Are you sure?</h2>
-          <p className="text-gray-600">
-            You are about to delete the article <span className="font-semibold">"{article?.title}"</span>. 
-            This action cannot be undone.
+      <div className="p-6 space-y-6">
+        <div className="flex flex-col items-center text-center p-6 bg-red-50 dark:bg-red-900/10 rounded-xl mb-6">
+          <div className="text-red-600 dark:text-red-400 text-5xl mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-16 w-16" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h2 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Êtes-vous sûr ?</h2>
+          <p className="text-gray-600 dark:text-gray-400 max-w-lg">
+            Vous êtes sur le point de supprimer l'article <span className="font-semibold">"{article?.title}"</span>. 
+            Cette action est irréversible et toutes les données associées seront perdues.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6">
-          <div className="md:col-span-2 bg-gray-100 p-4 rounded-md">
-            <div className="font-medium mb-2">Article details:</div>
-            <p><span className="font-medium">Title:</span> {article?.title}</p>
-            <p><span className="font-medium">Category:</span> {article?.category}</p>
-            <p className="line-clamp-3"><span className="font-medium">Description:</span> {article?.description}</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="md:col-span-2 bg-gray-50 dark:bg-gray-700 p-5 rounded-xl">
+            <h3 className="font-medium mb-3 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-600 pb-2">Détails de l'article :</h3>
+            <div className="space-y-2 text-gray-700 dark:text-gray-300">
+              <p><span className="font-medium">Titre :</span> {article?.title}</p>
+              <p><span className="font-medium">Catégorie :</span> {article?.category || 'Non catégorisé'}</p>
+              <div>
+                <p className="font-medium mb-1">Description :</p>
+                <p className="text-sm bg-white dark:bg-gray-800 p-3 rounded-md line-clamp-4">{article?.description}</p>
+              </div>
+              <p><span className="font-medium">Créé le :</span> {new Date(article?.createdAt).toLocaleDateString('fr-FR', {
+                day: 'numeric',
+                month: 'long',
+                year: 'numeric'
+              })}</p>
+            </div>
           </div>
           
-          <div className="bg-gray-100 p-4 rounded-md flex items-center justify-center">
+          <div className="bg-gray-50 dark:bg-gray-700 p-5 rounded-xl flex items-center justify-center">
             {article?.image ? (
               <div className="text-center">
-                <p className="text-sm font-medium text-gray-700 mb-2">Article Image:</p>
-                <img 
-                  src={article.image} 
-                  alt={article.title}
-                  className="max-h-32 max-w-full object-contain mx-auto"
-                />
+                <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Image de l'article :</p>
+                <div className="border border-gray-200 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800">
+                  <img 
+                    src={article.image} 
+                    alt={article.title}
+                    className="max-h-36 max-w-full object-contain mx-auto"
+                  />
+                </div>
               </div>
             ) : (
-              <div className="text-center text-gray-500">
-                <p>No image available</p>
+              <div className="text-center text-gray-500 dark:text-gray-400">
+                <p>Pas d'image disponible</p>
               </div>
             )}
           </div>
         </div>
 
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-4 pt-6 border-t border-gray-200 dark:border-gray-700">
           <Link
             href="/dashboard/admin"
-            className="px-6 py-2 bg-gray-500 text-white rounded-md hover:bg-gray-600 transition-colors"
+            className="px-6 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-md hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
           >
-            Cancel
+            Annuler
           </Link>
           <button
             onClick={handleDelete}
             disabled={deleting}
-            className={`px-6 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition-colors ${deleting ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`px-6 py-2.5 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 transition-colors ${deleting ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            {deleting ? 'Deleting...' : 'Delete Article'}
+            {deleting ? (
+              <span className="flex items-center">
+                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Suppression...
+              </span>
+            ) : (
+              <span className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                </svg>
+                Supprimer l'article
+              </span>
+            )}
           </button>
         </div>
       </div>

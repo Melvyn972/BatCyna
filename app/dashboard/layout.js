@@ -15,5 +15,9 @@ export default async function LayoutPrivate({ children }) {
     redirect(config.auth.loginUrl);
   }
 
-  return <>{children}</>;
+  return (
+    <div className="bg-gray-50 dark:bg-gray-900 min-h-screen transition-colors duration-200">
+      {children}
+    </div>
+  );
 }

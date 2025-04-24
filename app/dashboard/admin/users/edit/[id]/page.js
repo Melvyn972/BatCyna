@@ -27,11 +27,11 @@ export default function EditUser({ params }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        // Fetch user data
+        // Récupérer les données de l'utilisateur
         const userResponse = await fetch(`/api/admin/users/${id}`);
         
         if (!userResponse.ok) {
-          throw new Error('User not found');
+          throw new Error('Utilisateur non trouvé');
         }
         
         const userData = await userResponse.json();
@@ -47,14 +47,14 @@ export default function EditUser({ params }) {
           setImagePreview(userData.image);
         }
         
-        // Fetch user's purchases
+        // Récupérer les achats de l'utilisateur
         const purchasesResponse = await fetch(`/api/admin/users/${id}/purchases`);
         if (purchasesResponse.ok) {
           const purchasesData = await purchasesResponse.json();
           setUserPurchases(purchasesData.map(p => p.articleId));
         }
         
-        // Fetch all articles
+        // Récupérer tous les articles
         const articlesResponse = await fetch('/api/admin/articles');
         if (articlesResponse.ok) {
           const articlesData = await articlesResponse.json();
@@ -93,7 +93,7 @@ export default function EditUser({ params }) {
     if (file) {
       setSelectedFile(file);
       
-      // Create a preview
+      // Créer un aperçu
       const reader = new FileReader();
       reader.onloadend = () => {
         setImagePreview(reader.result);
@@ -108,7 +108,7 @@ export default function EditUser({ params }) {
     setError('');
 
     try {
-      // Create FormData object to send file
+      // Créer un objet FormData pour envoyer le fichier
       const formDataToSend = new FormData();
       formDataToSend.append('name', formData.name);
       formDataToSend.append('email', formData.email);
@@ -130,7 +130,7 @@ export default function EditUser({ params }) {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || 'Failed to update user');
+        throw new Error(errorData.message || 'Échec de la mise à jour de l\'utilisateur');
       }
 
       router.push('/dashboard/admin');
@@ -143,133 +143,145 @@ export default function EditUser({ params }) {
   };
 
   if (loading) {
-    return <div className="text-center py-12">Loading user data...</div>;
+    return (
+      <div className="flex justify-center items-center py-12">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <span className="ml-3 text-gray-700 dark:text-gray-300">Chargement...</span>
+      </div>
+    );
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-bold">Edit User</h1>
-        <Link 
-          href="/dashboard/admin" 
-          className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
-        >
-          Back to Dashboard
-        </Link>
+    <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-soft rounded-xl overflow-hidden transition-all duration-200">
+      <div className="p-6 border-b border-gray-200 dark:border-gray-700">
+        <div className="flex justify-between items-center">
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Modifier l'utilisateur</h1>
+          <Link 
+            href="/dashboard/admin" 
+            className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Retour
+          </Link>
+        </div>
       </div>
 
       {error && (
-        <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-4" role="alert">
+        <div className="bg-red-100 dark:bg-red-900/30 border-l-4 border-red-500 text-red-700 dark:text-red-300 p-4 m-6 rounded" role="alert">
           <p>{error}</p>
         </div>
       )}
 
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6">
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
+      <form onSubmit={handleSubmit} className="p-6 space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" htmlFor="name">
+              Nom
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="shadow-sm bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 transition-colors"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" htmlFor="email">
+              Email
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="shadow-sm bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 transition-colors"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" htmlFor="password">
+              Mot de passe
+            </label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="shadow-sm bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 transition-colors"
+            />
+            <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+              Laissez vide pour conserver le mot de passe actuel.
+            </p>
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" htmlFor="role">
+              Rôle
+            </label>
+            <select
+              id="role"
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              className="shadow-sm bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 transition-colors"
+            >
+              <option value="USER">Utilisateur</option>
+              <option value="ADMIN">Administrateur</option>
+            </select>
+          </div>
         </div>
 
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            required
-          />
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
-            Password
-          </label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            value={formData.password}
-            onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          />
-          <p className="text-xs text-gray-500 mt-1">
-            Leave blank to keep the current password.
-          </p>
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="role">
-            Role
-          </label>
-          <select
-            id="role"
-            name="role"
-            value={formData.role}
-            onChange={handleChange}
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          >
-            <option value="USER">User</option>
-            <option value="ADMIN">Admin</option>
-          </select>
-        </div>
-
-        <div className="mb-4">
-          <label className="block text-gray-700 text-sm font-bold mb-2">
-            Purchased Articles
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Articles achetés
           </label>
           {articles.length === 0 ? (
-            <p className="text-gray-600 text-sm italic">No articles available</p>
+            <p className="text-gray-500 dark:text-gray-400 text-sm italic">Aucun article disponible</p>
           ) : (
-            <div className="max-h-48 overflow-y-auto border rounded p-2">
+            <div className="max-h-48 overflow-y-auto border border-gray-300 dark:border-gray-600 rounded-md p-3 bg-white dark:bg-gray-700">
               {articles.map(article => (
-                <div key={article.id} className="flex items-center mb-2">
+                <div key={article.id} className="flex items-center mb-2 pb-2 border-b border-gray-100 dark:border-gray-600 last:border-0">
                   <input
                     type="checkbox"
                     id={`article-${article.id}`}
                     checked={userPurchases.includes(article.id)}
                     onChange={() => handleArticleSelection(article.id)}
-                    className="mr-2"
+                    className="w-4 h-4 text-blue-600 bg-gray-100 dark:bg-gray-600 border-gray-300 dark:border-gray-500 rounded focus:ring-blue-500 transition-colors"
                   />
-                  <label htmlFor={`article-${article.id}`} className="text-sm">
+                  <label htmlFor={`article-${article.id}`} className="ml-2 text-sm text-gray-700 dark:text-gray-300">
                     {article.title} 
-                    {article.price > 0 && <span className="text-gray-500 ml-2">({article.price.toFixed(2)} €)</span>}
+                    {article.price > 0 && <span className="text-gray-500 dark:text-gray-400 ml-2">({article.price.toFixed(2)} €)</span>}
                   </label>
                 </div>
               ))}
             </div>
           )}
-          <p className="text-xs text-gray-500 mt-1">
-            Select articles this user has purchased
+          <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+            Sélectionnez les articles que cet utilisateur a achetés
           </p>
         </div>
 
-        <div className="mb-6">
-          <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="avatar">
-            Profile Photo
+        <div>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" htmlFor="avatar">
+            Photo de profil
           </label>
           
           {imagePreview && (
             <div className="mb-3">
-              <p className="text-sm font-medium text-gray-700 mb-2">Current Photo:</p>
-              <div className="relative h-20 w-20">
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Photo actuelle :</p>
+              <div className="relative h-24 w-24 border border-gray-300 dark:border-gray-600 rounded-full overflow-hidden">
                 <img 
                   src={imagePreview} 
-                  alt="User avatar" 
-                  className="h-full w-full object-cover rounded-full border"
+                  alt="Avatar utilisateur" 
+                  className="h-full w-full object-cover"
                 />
               </div>
             </div>
@@ -288,23 +300,41 @@ export default function EditUser({ params }) {
             <button
               type="button"
               onClick={() => fileInputRef.current.click()}
-              className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 shadow-sm text-sm font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
             >
-              {imagePreview ? 'Change Photo' : 'Upload Photo'}
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              {imagePreview ? 'Changer la photo' : 'Télécharger une photo'}
             </button>
-            <span className="ml-3 text-gray-600 text-sm">
-              {selectedFile ? selectedFile.name : 'No new file chosen'}
+            <span className="ml-3 text-sm text-gray-500 dark:text-gray-400">
+              {selectedFile ? selectedFile.name : 'Aucun nouveau fichier sélectionné'}
             </span>
           </div>
         </div>
 
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-end pt-4 border-t border-gray-200 dark:border-gray-700">
+          <button
+            type="button"
+            onClick={() => router.push('/dashboard/admin')}
+            className="mr-4 px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-500 dark:hover:text-gray-400 transition-colors"
+          >
+            Annuler
+          </button>
           <button
             type="submit"
             disabled={saving}
-            className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline ${saving ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors ${saving ? 'opacity-50 cursor-not-allowed' : ''}`}
           >
-            {saving ? 'Saving...' : 'Save Changes'}
+            {saving ? (
+              <>
+                <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+                Enregistrement...
+              </>
+            ) : 'Enregistrer les modifications'}
           </button>
         </div>
       </form>

@@ -15,7 +15,7 @@ const links = [
     label: "Fonctionnalités",
   },
   {
-    href: "/#pricing",
+    href: "/articles",
     label: "Boutique",
   },
   {
