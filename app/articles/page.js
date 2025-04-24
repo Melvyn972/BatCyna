@@ -9,13 +9,23 @@ export const metadata = getSEOTags({
 });
 
 const Articles = async () => {
-  const articles = await prisma.article.findMany();
+  const articles = await prisma.articles.findMany();
   return (
     <>
       <h1>Articles</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        {articles.map((article) => (
+          <div key={article.id}>
+            <h2>{article.title}</h2>
+            <p>{article.description}</p>
+            <p>{article.category}</p>
+            <p>{article.image}</p>
+          </div>
+        ))} 
+      </div>
     </>
   );
 };
 
-export default TOS;
+export default Articles;
 

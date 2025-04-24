@@ -30,7 +30,8 @@
     "react-syntax-highlighter": "^15.6.1",
     "react-tooltip": "^5.28.1",
     "resend": "^4.4.1",
-    "stripe": "^13.11.0"
+    "stripe": "^13.11.0",
+    "uuid": "^11.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
