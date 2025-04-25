@@ -10,8 +10,8 @@ import config from "@/config";
 
 const links = [
   {
-    href: "/#features",
-    label: "Fonctionnalités",
+    href: "/#",
+    label: "Accueil",
   },
   {
     href: "/articles",
@@ -28,12 +28,10 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // setIsOpen(false) when the route changes
   useEffect(() => {
     setIsOpen(false);
   }, [searchParams]);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       const isScrolled = window.scrollY > 20;
@@ -56,7 +54,6 @@ const Header = () => {
         className="container flex items-center justify-between px-6 md:px-10 mx-auto"
         aria-label="Global"
       >
-        {/* Logo */}
         <div className="flex">
           <Link
             className="flex items-center gap-3"
@@ -76,7 +73,6 @@ const Header = () => {
           </Link>
         </div>
         
-        {/* Burger menu button */}
         <div className="flex lg:hidden">
           <div className="flex items-center gap-3">
             <ThemeToggle />
@@ -104,7 +100,6 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Desktop navigation */}
         <div className="hidden lg:flex lg:items-center lg:gap-10">
           {links.map((link) => (
             <Link
@@ -118,7 +113,6 @@ const Header = () => {
           ))}
         </div>
 
-        {/* CTA button and Theme Toggle */}
         <div className="hidden lg:flex lg:items-center lg:gap-3">
           <ThemeToggle />
           <Link
@@ -130,7 +124,6 @@ const Header = () => {
         </div>
       </nav>
 
-      {/* Mobile menu */}
       <div className={`fixed inset-0 z-50 ${isOpen ? "block" : "hidden"}`}>
         <div className="fixed inset-0 bg-base-300/50 dark:bg-black/60 backdrop-blur-lg" onClick={() => setIsOpen(false)}></div>
         <div className="fixed inset-y-0 right-0 w-full max-w-sm bg-gradient-to-b from-base-100 to-base-200 dark:bg-black p-6 overflow-y-auto transform transition-all duration-300">
