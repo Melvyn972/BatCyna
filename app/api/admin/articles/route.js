@@ -58,6 +58,7 @@ export async function POST(request) {
     const description = formData.get('description');
     const category = formData.get('category');
     const imageFile = formData.get('image');
+    const price = formData.get('price');
 
     // Validate required fields
     if (!title || !description || !category) {
@@ -80,6 +81,7 @@ export async function POST(request) {
         description,
         category,
         image: imagePath,
+        price: price ? parseFloat(price) : null,
       },
     });
 

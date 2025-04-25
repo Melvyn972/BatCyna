@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
-export default function AddToCartButton({ articleId, title }) {
+export default function AddToCartButton({ articleId, title, price }) {
   const [quantity, setQuantity] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
 
   const decreaseQuantity = () => {
     if (quantity > 1) {
@@ -23,32 +25,34 @@ export default function AddToCartButton({ articleId, title }) {
     setIsLoading(true);
     
     try {
-      await new Promise(resolve => setTimeout(resolve, 600));
+      const response = await fetch('/api/cart', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          productId: articleId,
+          quantity: quantity
+        }),
+      });
       
-      const currentCart = JSON.parse(localStorage.getItem("cart") || "[]");
-      
-      const existingItemIndex = currentCart.findIndex(item => item.id === articleId);
-      
-      if (existingItemIndex >= 0) {
-        currentCart[existingItemIndex].quantity += quantity;
-      } else {
-        // Sinon, ajouter le nouvel article
-        currentCart.push({
-          id: articleId,
-          title: title,
-          quantity: quantity,
-          price: 99.99 // Prix factice, à remplacer par le vrai prix
-        });
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || 'Une erreur est survenue');
       }
       
-      // Enregistrer le panier mis à jour
-      localStorage.setItem("cart", JSON.stringify(currentCart));
-      
-      // Afficher une notification de succès
+      // Success
       toast.success(`${quantity} ${title} ajouté${quantity > 1 ? 's' : ''} au panier`);
+      router.refresh(); // Refresh page to update cart count if displayed in header
     } catch (error) {
       console.error("Erreur lors de l'ajout au panier:", error);
-      toast.error("Impossible d'ajouter au panier. Veuillez réessayer.");
+      
+      if (error.message === 'Unauthorized') {
+        toast.error("Veuillez vous connecter pour ajouter des articles au panier");
+        router.push('/auth/login');
+      } else {
+        toast.error(error.message || "Impossible d'ajouter au panier. Veuillez réessayer.");
+      }
     } finally {
       setIsLoading(false);
     }

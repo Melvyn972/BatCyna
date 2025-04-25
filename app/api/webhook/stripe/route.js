@@ -32,6 +32,7 @@ export async function POST(req) {
     switch (eventType) {
       case "checkout.session.completed": {
         // First payment is successful and a subscription is created (if mode was set to "subscription" in ButtonCheckout)
+        // or a one-time payment is completed (if mode was set to "payment")
         // ✅ Grant access to the product
 
         const session = await findCheckoutSession(data.object.id);
@@ -41,6 +42,57 @@ export async function POST(req) {
         const userId = data.object.client_reference_id;
         const plan = configFile.stripe.plans.find((p) => p.priceId === priceId);
 
+        // Check if this is a cart purchase by looking for cart_items in metadata
+        const cartItems = data.object.metadata?.cart_items ? 
+          JSON.parse(data.object.metadata.cart_items) : null;
+
+        if (cartItems) {
+          // This is a cart purchase
+          if (!userId) {
+            console.error("No user ID found for cart purchase");
+            throw new Error("No user ID found for cart purchase");
+          }
+
+          // Get the user
+          const user = await prisma.user.findUnique({
+            where: { id: userId }
+          });
+
+          if (!user) {
+            console.error("User not found for cart purchase");
+            throw new Error("User not found for cart purchase");
+          }
+
+          // Update user's customerId if not already set
+          if (!user.customerId && customerId) {
+            await prisma.user.update({
+              where: { id: user.id },
+              data: { customerId }
+            });
+          }
+
+          // Create purchase records for each cart item
+          await Promise.all(cartItems.map(async (item) => {
+            await prisma.purchase.create({
+              data: {
+                userId: user.id,
+                articleId: item.productId,
+                quantity: item.quantity,
+                paidAt: new Date(),
+                orderId: data.object.id
+              }
+            });
+          }));
+
+          // Clear the user's cart after successful purchase
+          await prisma.cart.deleteMany({
+            where: { userId: user.id }
+          });
+
+          break;
+        }
+
+        // If not a cart purchase, continue with the existing logic for single article purchase
         if (!plan) break;
 
         const customer = await stripe.customers.retrieve(customerId);
@@ -98,7 +150,9 @@ export async function POST(req) {
               await tx.purchase.create({
                 data: {
                   userId: user.id,
-                  articleId: plan.articleId
+                  articleId: plan.articleId,
+                  paidAt: new Date(),
+                  orderId: data.object.id
                 }
               });
             }
@@ -191,7 +245,9 @@ export async function POST(req) {
               await prisma.purchase.create({
                 data: {
                   userId: user.id,
-                  articleId: plan.articleId
+                  articleId: plan.articleId,
+                  paidAt: new Date(),
+                  orderId: data.object.id
                 }
               });
             }

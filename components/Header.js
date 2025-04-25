@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import ThemeToggle from "@/app/components/ThemeToggle";
+import CartCount from "@/components/CartCount";
 import logo from "@/app/icon.png";
 import config from "@/config";
 
@@ -76,6 +77,7 @@ const Header = () => {
         
         <div className="flex lg:hidden">
           <div className="flex items-center gap-3">
+            <CartCount />
             <ThemeToggle />
           <button
             type="button"
@@ -115,6 +117,7 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:flex lg:items-center lg:gap-3">
+          <CartCount />
           <ThemeToggle />
           <Link
             href="/auth/login"
@@ -149,6 +152,7 @@ const Header = () => {
             </Link>
             
             <div className="flex items-center gap-3">
+              <CartCount />
               <ThemeToggle />
             <button
               type="button"

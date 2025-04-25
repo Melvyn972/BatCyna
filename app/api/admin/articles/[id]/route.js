@@ -124,6 +124,7 @@ export async function PUT(request, { params }) {
     const category = formData.get('category');
     const currentImageUrl = formData.get('currentImageUrl');
     const imageFile = formData.get('image');
+    const price = formData.get('price');
 
     // Validate required fields
     if (!title || !description || !category) {
@@ -165,6 +166,7 @@ export async function PUT(request, { params }) {
         description,
         category,
         image: imagePath,
+        price: price ? parseFloat(price) : null,
       },
     });
 

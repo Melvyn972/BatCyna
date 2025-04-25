@@ -7,7 +7,7 @@ import config from "@/config";
 import prisma from "@/libs/prisma";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import AddToCartButton from "./AddToCartButton";
+import AddToCartButton from "@/components/AddToCartButton";
 
 // Génération des métadonnées dynamiques pour chaque article
 export async function generateMetadata({ params }) {
