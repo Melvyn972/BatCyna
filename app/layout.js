@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
 			<Head>
 				<meta name="viewport" content="width=device-width, initial-scale=1" />
 			</Head>
-			<body className="bg-black text-white">
+			<body className="bg-white dark:bg-black text-base-content">
 				<script
 					dangerouslySetInnerHTML={{
 						__html: `
@@ -45,10 +45,10 @@ export default function RootLayout({ children }) {
 									// Appliquer le thème
 									if (theme === 'dark') {
 										document.documentElement.classList.add('dark');
-										document.documentElement.setAttribute('data-theme', 'dark');
+										document.documentElement.setAttribute('data-theme', 'batcyna-dark');
 									} else {
 										document.documentElement.classList.remove('dark');
-										document.documentElement.setAttribute('data-theme', 'light');
+										document.documentElement.setAttribute('data-theme', 'batcyna');
 									}
 								} catch (e) {
 									console.error('Erreur lors de l\'initialisation du thème:', e);
