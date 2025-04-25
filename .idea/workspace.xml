@@ -4,28 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1472034f-5cc0-4f41-a6c9-cd059891f82a" name="Changes" comment="Update navigation links and enhance layout styling for improved user experience dashboard and back-office">
+    <list default="true" id="1472034f-5cc0-4f41-a6c9-cd059891f82a" name="Changes" comment="Enhance layout and theme management with new batcyna themes and improved article display shop and article">
+      <change afterPath="$PROJECT_DIR$/app/articles/[id]/AddToCartButton.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/articles/[id]/page.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/ThemeSwitch.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/admin/articles/delete/[id]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/admin/articles/delete/[id]/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/admin/articles/edit/[id]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/admin/articles/edit/[id]/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/admin/articles/new/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/admin/articles/new/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/admin/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/admin/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/admin/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/admin/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/admin/users/delete/[id]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/admin/users/delete/[id]/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/admin/users/edit/[id]/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/admin/users/edit/[id]/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/admin/users/new/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/admin/users/new/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/data-export/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/data-export/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/delete-account/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/delete-account/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/layout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/profile/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/profile/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/dashboard/rgpd/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/dashboard/rgpd/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/articles/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/articles/page.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ThemeToggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ThemeToggle.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/context/ThemeContext.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/context/ThemeContext.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/layout.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/page.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/ButtonAccount.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/ButtonAccount.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/LayoutClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/components/LayoutClient.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +99,7 @@
       <workItem from="1745520233861" duration="32000" />
       <workItem from="1745520273013" duration="8000" />
       <workItem from="1745520285622" duration="38000" />
-      <workItem from="1745530909270" duration="4942000" />
+      <workItem from="1745530909270" duration="6437000" />
     </task>
     <task id="LOCAL-00001" summary="theme 90%">
       <option name="closed" value="true" />
@@ -120,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745524816955</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Update navigation links and enhance layout styling for improved user experience dashboard and back-office">
+      <option name="closed" value="true" />
+      <created>1745537552813</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1745537552813</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -140,6 +137,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="theme 90%" />
     <MESSAGE value="Update navigation links and enhance layout styling for improved user experience dashboard and back-office" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update navigation links and enhance layout styling for improved user experience dashboard and back-office" />
+    <MESSAGE value="Enhance layout and theme management with new batcyna themes and improved article display shop and article" />
+    <option name="LAST_COMMIT_MESSAGE" value="Enhance layout and theme management with new batcyna themes and improved article display shop and article" />
   </component>
 </project>
