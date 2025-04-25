@@ -14,6 +14,39 @@ export async function DELETE(req) {
         { status: 401 }
       );
     }
+
+    // Get cart items for the user
+    const cartItems = await prisma.cart.findMany({
+      where: {
+        userId: session.user.id
+      },
+      include: {
+        article: true  // Assuming there's a relation to the article
+      }
+    });
+
+    // If cart is empty, return early
+    if (cartItems.length === 0) {
+      return NextResponse.json({
+        success: true,
+        message: "Cart is already empty"
+      });
+    }
+
+    // Create purchase records for each cart item
+    for (const item of cartItems) {
+      await prisma.purchase.create({
+        data: {
+          quantity: item.quantity,
+          user: {
+            connect: { id: session.user.id }
+          },
+          article: {
+            connect: { id: item.productId }
+          }
+        }
+      });
+    }
     
     // Delete all cart items for this user
     await prisma.cart.deleteMany({
@@ -24,7 +57,7 @@ export async function DELETE(req) {
     
     return NextResponse.json({
       success: true,
-      message: "Cart cleared successfully"
+      message: "Cart cleared and purchases created successfully"
     });
   } catch (error) {
     console.error("Error clearing cart:", error);

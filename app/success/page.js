@@ -126,7 +126,7 @@ export default function SuccessPage() {
             </p>
             
             <div className="space-y-3">
-              <Link href="/profile" className="btn btn-primary w-full">
+              <Link href="/dashboard#articles" className="btn btn-primary w-full">
                 Voir mes achats
               </Link>
               
@@ -159,7 +159,7 @@ export default function SuccessPage() {
           </p>
           
           <div className="space-y-3">
-            <Link href="/profile" className="btn btn-primary w-full">
+            <Link href="/dashboard#articles" className="btn btn-primary w-full">
               Voir mes achats
             </Link>
             

@@ -13,6 +13,15 @@ export default async function Dashboard() {
     where: { email: session.user.email },
   });
 
+  const purchases = await prisma.purchase.findMany({
+    where: {
+      userId: user.id,
+    },
+    include: {
+      article: true,
+    },
+  });
+
   return (
     <main className="min-h-screen p-4 md:p-8 pb-24 bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
       <section className="max-w-6xl mx-auto">
@@ -89,6 +98,43 @@ export default async function Dashboard() {
                   Panneau d&apos;administration
                 </Link>
               </div>
+            </div>
+          )}
+        </div>
+
+        <div id="articles">
+          <h2 className="text-2xl font-bold text-gray-800 dark:text-white mt-8 mb-4">
+            Mes articles achetés
+          </h2>
+          {purchases.length === 0 ? (
+            <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 text-center">
+              <p className="text-gray-600 dark:text-gray-400">Vous n'avez pas encore acheté d'articles.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {purchases.map((purchase) => (
+                <div key={purchase.id} className="card bg-white dark:bg-gray-800 shadow-lg rounded-xl overflow-hidden transition-all duration-200 hover:shadow-xl">
+                  <div className="card-body p-6">
+                    <h3 className="card-title text-lg font-bold text-gray-800 dark:text-white mb-2">{purchase.article?.title || "Article indisponible"}</h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">{purchase.article?.description || "Description indisponible"}</p>
+                    <div className="flex justify-between items-center">
+                      <span className="text-sm text-gray-600 dark:text-gray-400">
+                        Prix: {purchase.article?.price || 0} €
+                      </span>
+                      <span className="text-sm text-gray-600 dark:text-gray-400">
+                        Acheté le: {new Date(purchase.purchaseDate).toLocaleDateString()}
+                      </span>
+                    </div>
+                    {purchase.article?.id && (
+                      <div className="mt-4">
+                        <Link href={`/articles/${purchase.article.id}`} className="btn btn-primary text-white normal-case">  
+                          Voir l'article
+                        </Link>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              ))}
             </div>
           )}
         </div>
