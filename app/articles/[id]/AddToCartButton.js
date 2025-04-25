@@ -7,37 +7,29 @@ export default function AddToCartButton({ articleId, title }) {
   const [quantity, setQuantity] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
-  // Fonction pour diminuer la quantité
   const decreaseQuantity = () => {
     if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
 
-  // Fonction pour augmenter la quantité
   const increaseQuantity = () => {
     if (quantity < 10) {
       setQuantity(quantity + 1);
     }
   };
 
-  // Fonction pour ajouter au panier
   const addToCart = async () => {
     setIsLoading(true);
     
     try {
-      // Simuler une API ou un état global du panier
-      // En production, vous utiliseriez une vraie API ou un état global (Redux, Context, etc.)
       await new Promise(resolve => setTimeout(resolve, 600));
       
-      // Récupérer le panier actuel du localStorage
       const currentCart = JSON.parse(localStorage.getItem("cart") || "[]");
       
-      // Vérifier si l'article existe déjà dans le panier
       const existingItemIndex = currentCart.findIndex(item => item.id === articleId);
       
       if (existingItemIndex >= 0) {
-        // Si l'article existe, mettre à jour la quantité
         currentCart[existingItemIndex].quantity += quantity;
       } else {
         // Sinon, ajouter le nouvel article

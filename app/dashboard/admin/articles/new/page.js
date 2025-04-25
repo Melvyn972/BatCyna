@@ -199,6 +199,9 @@ export default function NewArticle() {
                     src={imagePreview} 
                     alt="Aperçu" 
                     className="w-full h-auto object-contain max-h-60"
+                    width={320}
+                    height={240}
+                    sizes="(max-width: 768px) 100vw, 320px"
                   />
                 </div>
               </div>

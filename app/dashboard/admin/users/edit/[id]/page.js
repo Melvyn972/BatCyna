@@ -282,6 +282,9 @@ export default function EditUser({ params }) {
                   src={imagePreview} 
                   alt="Avatar utilisateur" 
                   className="h-full w-full object-cover"
+                  width={96}
+                  height={96}
+                  sizes="96px"
                 />
               </div>
             </div>

@@ -6,8 +6,6 @@ const CTA = () => {
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-gradient-to-br from-purple-300/20 to-transparent dark:from-purple-500/10 dark:to-transparent rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-gradient-to-tr from-blue-300/20 to-transparent dark:from-blue-500/10 dark:to-transparent rounded-full blur-3xl"></div>
       
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
-      
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <span className="inline-block py-1 px-3 text-xs bg-gradient-to-r from-purple-500/20 to-blue-500/20 dark:bg-white/10 text-base-content dark:text-white rounded-full mb-6 font-medium">
