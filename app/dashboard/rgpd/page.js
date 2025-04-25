@@ -9,8 +9,8 @@ export default function RGPDPage() {
   const tabParam = searchParams.get("tab");
   
   const [consentSettings, setConsentSettings] = useState({
-    marketing: true,
-    analytics: true,
+    marketing: false,
+    analytics: false,
     thirdParty: false,
   });
   const [dataRetentionPeriod, setDataRetentionPeriod] = useState("2_years");
@@ -322,7 +322,7 @@ export default function RGPDPage() {
                           <p className="text-gray-500 dark:text-gray-400">Aucun historique de consentement disponible</p>
                         </div>
                       ) : (
-                        <div className="space-y-3">
+                        <div className="space-y-3 max-h-[500px] overflow-y-auto">
                           {consentHistory.map((item, index) => (
                             <div key={index} className="card bg-gray-50 dark:bg-gray-700/50 shadow-sm rounded-lg overflow-hidden">
                               <div className="card-body p-4">
@@ -331,11 +331,11 @@ export default function RGPDPage() {
                                     <h3 className="font-medium text-gray-800 dark:text-white flex items-center">
                                       {formatConsentType(item.type)}
                                       <span className={`ml-2 px-2 py-0.5 text-xs rounded-full ${
-                                        item.value 
+                                        item.status 
                                           ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300' 
                                           : 'bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                                      }`}>
-                                        {item.value ? 'Accepté' : 'Refusé'}
+                                        }`}>
+                                          {item.status ? 'Accepté' : 'Refusé'}
                                       </span>
                                     </h3>
                                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">

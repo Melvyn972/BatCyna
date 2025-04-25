@@ -50,8 +50,8 @@ model User {
   role          UserRole  @default(USER)
   phone         String?
   address       String?
-  consentMarketing Boolean @default(true)
-  consentAnalytics Boolean @default(true)
+  consentMarketing Boolean @default(false)
+  consentAnalytics Boolean @default(false)
   consentThirdParty Boolean @default(false)
   dataRetentionPeriod String @default("2_years")  // How long we keep user data
   

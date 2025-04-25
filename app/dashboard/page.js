@@ -47,6 +47,10 @@ export default async function Dashboard() {
                   <span className="text-gray-800 dark:text-white">{user.email}</span>
                 </div>
                 <div className="flex items-center border-b border-gray-200 dark:border-gray-700 pb-2">
+                  <span className="font-medium text-gray-600 dark:text-gray-400 w-24">Téléphone:</span> 
+                  <span className="text-gray-800 dark:text-white">{user.phone || "Non défini"}</span>
+                </div>
+                <div className="flex items-center border-b border-gray-200 dark:border-gray-700 pb-2">
                   <span className="font-medium text-gray-600 dark:text-gray-400 w-24">Rôle:</span> 
                   <span className="text-gray-800 dark:text-white">{user.role}</span>
                 </div>
