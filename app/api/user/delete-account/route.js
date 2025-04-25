@@ -4,6 +4,7 @@ import { authOptions } from "@/libs/next-auth";
 import prisma from "@/libs/prisma";
 
 export async function DELETE(request) {
+  console.log(request);
   try {
     const session = await getServerSession(authOptions);
     

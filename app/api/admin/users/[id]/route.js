@@ -6,7 +6,6 @@ import { writeFile, unlink } from "fs/promises";
 import { join } from "path";
 import { v4 as uuidv4 } from "uuid";
 import { existsSync } from "fs";
-import bcrypt from "bcryptjs";
 
 // Helper function to process avatar uploads
 async function saveFile(file) {

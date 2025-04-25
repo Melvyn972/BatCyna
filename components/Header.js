@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import ButtonSignin from "./ButtonSignin";
 import ThemeToggle from "@/app/components/ThemeToggle";
 import logo from "@/app/icon.png";
 import config from "@/config";
@@ -23,8 +22,6 @@ const links = [
     label: "FAQ",
   },
 ];
-
-const cta = <ButtonSignin extraStyle="btn-primary" />;
 
 const Header = () => {
   const searchParams = useSearchParams();

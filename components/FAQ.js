@@ -7,7 +7,7 @@ const faqList = [
     question: "Comment CynaStore protège-t-il contre les menaces zero-day?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        Notre moteur de détection de menaces alimenté par l'IA analyse en permanence les modèles de comportement sur votre réseau et vos terminaux pour identifier les activités anormales, même provenant de menaces inconnues. Contrairement aux solutions basées sur les signatures, nous ne nous appuyons pas uniquement sur des indicateurs de menaces connus, ce qui nous permet de détecter et de répondre aux attaques zero-day sophistiquées avant qu'elles ne causent des dommages.
+        Notre moteur de détection de menaces alimenté par l&apos;IA analyse en permanence les modèles de comportement sur votre réseau et vos terminaux pour identifier les activités anormales, même provenant de menaces inconnues. Contrairement aux solutions basées sur les signatures, nous ne nous appuyons pas uniquement sur des indicateurs de menaces connus, ce qui nous permet de détecter et de répondre aux attaques zero-day sophistiquées avant qu&apos;elles ne causent des dommages.
       </div>
     ),
   },
@@ -15,7 +15,7 @@ const faqList = [
     question: "CynaStore est-il conforme aux réglementations de l'industrie?",
     answer: (
       <p>
-        Absolument. CynaStore est conçu avec la conformité comme principe fondamental, prenant en charge le RGPD, HIPAA, SOC 2, ISO 27001 et d'autres cadres réglementaires majeurs. Notre plateforme vous aide non seulement à atteindre la conformité, mais maintient également la documentation et les preuves requises pour les audits, réduisant votre charge de conformité jusqu'à 70%.
+        Absolument. CynaStore est conçu avec la conformité comme principe fondamental, prenant en charge le RGPD, HIPAA, SOC 2, ISO 27001 et d&apos;autres cadres réglementaires majeurs. Notre plateforme vous aide non seulement à atteindre la conformité, mais maintient également la documentation et les preuves requises pour les audits, réduisant votre charge de conformité jusqu&apos;à 70%.
       </p>
     ),
   },
@@ -23,7 +23,7 @@ const faqList = [
     question: "Combien de temps faut-il pour implémenter CynaStore?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        La plupart des organisations sont pleinement opérationnelles avec CynaStore en 5 à 7 jours ouvrables. Notre processus d'intégration rationalisé comprend des spécialistes dédiés à la mise en œuvre qui gèrent la configuration technique pendant que votre équipe reçoit une formation complète. Contrairement aux solutions de sécurité traditionnelles qui peuvent prendre des mois à déployer, l'architecture native cloud de CynaStore permet une intégration rapide avec votre infrastructure existante.
+        La plupart des organisations sont pleinement opérationnelles avec CynaStore en 5 à 7 jours ouvrables. Notre processus d&apos;intégration rationalisé comprend des spécialistes dédiés à la mise en œuvre qui gèrent la configuration technique pendant que votre équipe reçoit une formation complète. Contrairement aux solutions de sécurité traditionnelles qui peuvent prendre des mois à déployer, l&apos;architecture native cloud de CynaStore permet une intégration rapide avec votre infrastructure existante.
       </div>
     ),
   },
@@ -31,7 +31,7 @@ const faqList = [
     question: "Qu'est-ce qui différencie CynaStore des fournisseurs de sécurité traditionnels?",
     answer: (
       <div className="space-y-2 leading-relaxed">
-        CynaStore offre une sécurité de niveau entreprise via un modèle SaaS qui élimine la complexité et les frais généraux des solutions traditionnelles. Nous combinons une technologie avancée avec l'expertise humaine grâce à notre Centre d'Opérations de Sécurité 24/7, fournissant une protection complète sans vous obliger à constituer une équipe de sécurité interne. Notre plateforme évolue continuellement grâce à l'apprentissage par IA, garantissant que vous êtes protégé contre les menaces émergentes.
+        CynaStore offre une sécurité de niveau entreprise via un modèle SaaS qui élimine la complexité et les frais généraux des solutions traditionnelles. Nous combinons une technologie avancée avec l&apos;expertise humaine grâce à notre Centre d&apos;Opérations de Sécurité 24/7, fournissant une protection complète sans vous obliger à constituer une équipe de sécurité interne. Notre plateforme évolue continuellement grâce à l&apos;apprentissage par IA, garantissant que vous êtes protégé contre les menaces émergentes.
       </div>
     ),
   },

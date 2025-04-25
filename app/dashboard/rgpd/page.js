@@ -254,7 +254,7 @@ export default function RGPDPage() {
                               </svg>
                               <div>
                                 <h3 className="font-medium text-gray-800 dark:text-white">Analyses et statistiques</h3>
-                                <p className="text-sm text-gray-600 dark:text-gray-400">Nous permet d'améliorer notre site en analysant votre usage</p>
+                                <p className="text-sm text-gray-600 dark:text-gray-400">Nous permet d&apos;améliorer notre site en analysant votre usage</p>
                               </div>
                             </div>
                             <input 
@@ -311,7 +311,7 @@ export default function RGPDPage() {
                       </div>
                       <div>
                         <p className="text-gray-700 dark:text-gray-300">
-                          Consultez l'historique de vos choix de consentement et les modifications apportées à vos préférences.
+                          Consultez l&apos;historique de vos choix de consentement et les modifications apportées à vos préférences.
                         </p>
                       </div>
                     </div>
@@ -388,7 +388,7 @@ export default function RGPDPage() {
                               <div>
                                 <span className="label-text font-medium text-gray-800 dark:text-white">1 an</span>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                  Vos données seront supprimées après 1 an d'inactivité
+                                  Vos données seront supprimées après 1 an d&apos;inactivité
                                 </p>
                               </div>
                             </label>
@@ -410,7 +410,7 @@ export default function RGPDPage() {
                               <div>
                                 <span className="label-text font-medium text-gray-800 dark:text-white">2 ans</span>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                  Vos données seront supprimées après 2 ans d'inactivité
+                                  Vos données seront supprimées après 2 ans d&apos;inactivité
                                 </p>
                               </div>
                             </label>
@@ -432,7 +432,7 @@ export default function RGPDPage() {
                               <div>
                                 <span className="label-text font-medium text-gray-800 dark:text-white">3 ans</span>
                                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
-                                  Vos données seront supprimées après 3 ans d'inactivité
+                                  Vos données seront supprimées après 3 ans d&apos;inactivité
                                 </p>
                               </div>
                             </label>

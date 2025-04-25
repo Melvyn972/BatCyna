@@ -40,7 +40,7 @@ export default async function AdminDashboard() {
   return (
     <div className="space-y-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">Tableau de bord d'administration</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white mb-2">Tableau de bord d&apos;administration</h1>
         <p className="text-gray-600 dark:text-gray-400">Bienvenue, {session.user.name || session.user.email}. Voici un aperçu de votre plateforme.</p>
       </div>
       
@@ -100,7 +100,7 @@ export default async function AdminDashboard() {
           </div>
         </div>
         
-        {userStats.map((stat, index) => (
+        {userStats.map((stat) => (
           <div key={stat.role} className="bg-white dark:bg-gray-800 overflow-hidden shadow-lg rounded-xl border border-gray-100 dark:border-gray-700 transition-all duration-200 hover:shadow-xl">
             <div className="p-5">
               <div className="flex items-center">
@@ -194,7 +194,7 @@ export default async function AdminDashboard() {
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-10 w-10">
                           {user.image ? (
-                            <img 
+                            <Image 
                               src={user.image}
                               alt={user.name || user.email}
                               className="h-10 w-10 rounded-full object-cover"
@@ -324,7 +324,7 @@ export default async function AdminDashboard() {
                       <div className="flex items-center">
                         <div className="flex-shrink-0 h-12 w-12 relative">
                           {article.image ? (
-                            <img 
+                            <Image 
                               src={article.image}
                               alt={article.title}
                               className="h-12 w-12 rounded-md object-cover"

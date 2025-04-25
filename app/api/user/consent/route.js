@@ -5,6 +5,7 @@ import prisma from "@/libs/prisma";
 
 // Get current consent settings
 export async function GET(request) {
+  console.log(request);
   try {
     const session = await getServerSession(authOptions);
     

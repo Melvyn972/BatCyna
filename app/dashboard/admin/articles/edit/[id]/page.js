@@ -124,7 +124,7 @@ export default function EditArticle({ params }) {
     <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-soft rounded-xl overflow-hidden transition-all duration-200">
       <div className="p-6 border-b border-gray-200 dark:border-gray-700">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Modifier l'article</h1>
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Modifier l&apos;article</h1>
           <Link 
             href="/dashboard/admin" 
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
@@ -199,7 +199,7 @@ export default function EditArticle({ params }) {
             <div className="mb-4">
               <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Image actuelle :</p>
               <div className="border border-gray-300 dark:border-gray-600 rounded-md overflow-hidden max-w-xs">
-                <img 
+                <Image 
                   src={imagePreview} 
                   alt="Image de l'article" 
                   className="w-full h-auto object-contain max-h-48"

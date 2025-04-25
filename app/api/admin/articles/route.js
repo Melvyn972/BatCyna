@@ -95,6 +95,8 @@ export async function POST(request) {
 
 // GET /api/admin/articles - Get all articles
 export async function GET(request) {
+
+  console.log(request);
   try {
     // Check if user is authenticated and is an admin
     const session = await getServerSession(authOptions);

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Popover, Transition } from "@headlessui/react";
 import { useSession, signOut } from "next-auth/react";
 import apiClient from "@/libs/api";
-
+import Image from "next/image";
 
 const ButtonAccount = () => {
   const { data: session, status } = useSession();
@@ -37,7 +37,7 @@ const ButtonAccount = () => {
         <>
           <Popover.Button className="px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:shadow-lg text-white dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200 transition-all font-medium">
             {session?.user?.image ? (
-              <img
+              <Image
                 src={session?.user?.image}
                 alt={session?.user?.name || "Compte"}
                 className="w-6 h-6 rounded-full shrink-0 inline-block mr-2"

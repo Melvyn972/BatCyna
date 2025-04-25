@@ -3,12 +3,9 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import Image from "next/image";
 import config from "@/config";
-import { useTheme } from "@/app/context/ThemeContext";
 
 export default function RegisterPage() {
-  const { isDark } = useTheme();
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
@@ -54,7 +51,7 @@ export default function RegisterPage() {
               Rejoignez-nous
             </span>
             <h2 className="text-3xl font-bold dark:text-white text-gray-900 mb-4">
-              Renforcez votre <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">cybersécurité</span> dès aujourd'hui
+              Renforcez votre <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500">cybersécurité</span> dès aujourd&apos;hui
             </h2>
             <p className="dark:text-gray-300 text-gray-600">
               Créez votre compte pour accéder à notre plateforme de sécurité avancée et protéger votre entreprise contre les cybermenaces modernes.
@@ -82,7 +79,7 @@ export default function RegisterPage() {
                 </svg>
               </div>
               <div>
-                <h3 className="dark:text-white text-gray-900 font-medium mb-1">C'est partie</h3>
+                <h3 className="dark:text-white text-gray-900 font-medium mb-1">C&apos;est partie</h3>
                 <p className="dark:text-gray-400 text-gray-600 text-sm">Commencé avec toutes les fonctionnalités premium disponibles.</p>
               </div>
             </div>
@@ -142,7 +139,7 @@ export default function RegisterPage() {
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
               </svg>
-              S'inscrire avec Google
+              S&apos;inscrire avec Google
             </button>
 
             <div className="relative flex items-center justify-center mb-6">
@@ -175,9 +172,9 @@ export default function RegisterPage() {
                   required
                 />
                 <label htmlFor="terms" className="ml-2 block text-sm dark:text-gray-300 text-gray-600">
-                  J'accepte les{" "}
+                  J&apos;accepte les{" "}
                   <Link href="/tos" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors">
-                    conditions d'utilisation
+                    conditions d&apos;utilisation
                   </Link>{" "}
                   et la{" "}
                   <Link href="/privacy-policy" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors">

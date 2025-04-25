@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function DeleteArticle({ params }) {
@@ -85,7 +86,7 @@ export default function DeleteArticle({ params }) {
     <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-soft rounded-xl overflow-hidden transition-all duration-200">
       <div className="p-6 border-b border-gray-200 dark:border-gray-700">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Supprimer l'article</h1>
+          <h1 className="text-2xl font-bold text-gray-800 dark:text-white">Supprimer l&apos;article</h1>
           <Link 
             href="/dashboard/admin" 
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
@@ -113,14 +114,14 @@ export default function DeleteArticle({ params }) {
           </div>
           <h2 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Êtes-vous sûr ?</h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-lg">
-            Vous êtes sur le point de supprimer l'article <span className="font-semibold">"{article?.title}"</span>. 
+            Vous êtes sur le point de supprimer l&apos;article <span className="font-semibold">&quot;{article?.title}&quot;</span>. 
             Cette action est irréversible et toutes les données associées seront perdues.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="md:col-span-2 bg-gray-50 dark:bg-gray-700 p-5 rounded-xl">
-            <h3 className="font-medium mb-3 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-600 pb-2">Détails de l'article :</h3>
+            <h3 className="font-medium mb-3 text-gray-800 dark:text-white border-b border-gray-200 dark:border-gray-600 pb-2">Détails de l&apos;article :</h3>
             <div className="space-y-2 text-gray-700 dark:text-gray-300">
               <p><span className="font-medium">Titre :</span> {article?.title}</p>
               <p><span className="font-medium">Catégorie :</span> {article?.category || 'Non catégorisé'}</p>
@@ -139,9 +140,9 @@ export default function DeleteArticle({ params }) {
           <div className="bg-gray-50 dark:bg-gray-700 p-5 rounded-xl flex items-center justify-center">
             {article?.image ? (
               <div className="text-center">
-                <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Image de l'article :</p>
+                <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Image de l&apos;article :</p>
                 <div className="border border-gray-200 dark:border-gray-600 rounded-md p-2 bg-white dark:bg-gray-800">
-                  <img 
+                  <Image 
                     src={article.image} 
                     alt={article.title}
                     className="max-h-36 max-w-full object-contain mx-auto"
@@ -150,7 +151,7 @@ export default function DeleteArticle({ params }) {
               </div>
             ) : (
               <div className="text-center text-gray-500 dark:text-gray-400">
-                <p>Pas d'image disponible</p>
+                <p>Pas d&apos;image disponible</p>
               </div>
             )}
           </div>
@@ -181,7 +182,7 @@ export default function DeleteArticle({ params }) {
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
-                Supprimer l'article
+                Supprimer l&apos;article
               </span>
             )}
           </button>

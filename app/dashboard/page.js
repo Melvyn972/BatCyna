@@ -7,9 +7,6 @@ import ThemeToggle from "@/app/components/ThemeToggle";
 
 export const dynamic = "force-dynamic";
 
-// This is a private page: It's protected by the layout.js component which ensures the user is authenticated.
-// It's a server compoment which means you can fetch data (like the user profile) before the page is rendered.
-// See https://shipfa.st/docs/tutorials/private-page
 export default async function Dashboard() {
   const session = await getServerSession(authOptions);
   const user = await prisma.user.findUnique({
@@ -80,7 +77,7 @@ export default async function Dashboard() {
                   </svg>
                   Administration
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">Accédez au panneau d'administration pour gérer les utilisateurs et les paramètres du site.</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-6">Accédez au panneau d&apos;administration pour gérer les utilisateurs et les paramètres du site.</p>
                 <Link 
                   href="/dashboard/admin" 
                   className="btn btn-secondary text-white normal-case"
@@ -89,7 +86,7 @@ export default async function Dashboard() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
-                  Panneau d'administration
+                  Panneau d&apos;administration
                 </Link>
               </div>
             </div>
@@ -129,7 +126,7 @@ export default async function Dashboard() {
                 </svg>
                 <div>
                   <h3 className="font-medium">Historique des consentements</h3>
-                  <p className="text-sm text-purple-600 dark:text-purple-200">Consultez l'historique de vos choix</p>
+                  <p className="text-sm text-purple-600 dark:text-purple-200">Consultez l&apos;historique de vos choix</p>
                 </div>
               </Link>
               
@@ -184,7 +181,7 @@ export default async function Dashboard() {
               Politique de confidentialité
             </Link>
             <Link href="/tos" className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors">
-              Conditions d'utilisation
+              Conditions d&apos;utilisation
             </Link>
           </div>
         </div>

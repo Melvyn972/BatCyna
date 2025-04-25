@@ -70,21 +70,6 @@ const Item = ({ feature, isActive, onClick, index }) => {
   );
 };
 
-const Media = ({ feature }) => {
-  return (
-    <div className="rounded-2xl aspect-square w-full sm:w-[26rem] bg-base-200 flex items-center justify-center">
-      <div className="text-6xl p-8 bg-base-100 rounded-full shadow-lg">
-        <Image
-          src={feature.icon || "/icons/shield-check.svg"}
-          alt={feature.title}
-          width={150}
-          height={150}
-          className="h-24 w-24 object-contain opacity-90"
-        />
-      </div>
-    </div>
-  );
-};
 
 const FeaturesAccordion = () => {
   const [activeIndex, setActiveIndex] = useState(0);

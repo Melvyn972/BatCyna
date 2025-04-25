@@ -1,10 +1,10 @@
 "use client";
 
-import { useSession, signIn } from "next-auth/react";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import config from "@/config";
-
+import Image from "next/image";
 const ButtonSignin = ({ text = "Get started", extraStyle }) => {
   const router = useRouter();
   const { data: session, status } = useSession();
@@ -24,7 +24,7 @@ const ButtonSignin = ({ text = "Get started", extraStyle }) => {
         className={`btn ${extraStyle ? extraStyle : ""}`}
       >
         {session.user?.image ? (
-          <img
+          <Image
             src={session.user?.image}
             alt={session.user?.name || "Account"}
             className="w-6 h-6 rounded-full shrink-0"

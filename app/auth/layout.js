@@ -51,7 +51,7 @@ export default async function AuthLayout({ children }) {
             <p>© {new Date().getFullYear()} {config.appName}. Tous droits réservés.</p>
             <div className="flex gap-6">
               <Link href="/privacy-policy" className="dark:hover:text-white hover:text-gray-800 transition-colors">Politique de confidentialité</Link>
-              <Link href="/tos" className="dark:hover:text-white hover:text-gray-800 transition-colors">Conditions d'utilisation</Link>
+              <Link href="/tos" className="dark:hover:text-white hover:text-gray-800 transition-colors">Conditions d&apos;utilisation</Link>
             </div>
           </div>
         </footer>
