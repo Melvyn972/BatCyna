@@ -12,6 +12,7 @@ export default function NewArticle() {
     title: '',
     description: '',
     category: '',
+    price: '',
   });
   const [selectedFile, setSelectedFile] = useState(null);
   const [imagePreview, setImagePreview] = useState('');
@@ -140,6 +141,21 @@ export default function NewArticle() {
               id="category"
               name="category"
               value={formData.category}
+              onChange={handleChange}
+              className="shadow-sm bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 transition-colors"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2" htmlFor="price">
+              Prix
+            </label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value={formData.price}
               onChange={handleChange}
               className="shadow-sm bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 transition-colors"
               required
