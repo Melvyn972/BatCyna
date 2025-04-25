@@ -29,12 +29,20 @@ const Footer = () => {
             </p>
             
             <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full dark:bg-white/5 bg-gray-200 dark:hover:bg-white/10 hover:bg-gray-300 transition-colors">
+              <a 
+                href="#" 
+                className="w-10 h-10 flex items-center justify-center rounded-full dark:bg-white/5 bg-gray-200 dark:hover:bg-white/10 hover:bg-gray-300 transition-colors"
+                aria-label="Suivez-nous sur Twitter"
+              >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="dark:text-white text-gray-700">
                   <path d="M22 6C22 6 21.3 8.1 20 9.4C21.6 17.4 15.3 22 9 22C5.9 22 3.1 20.9 1 19C4.2 19.4 7 18.3 9 16C6 15.9 4 13.8 3 11C4 11.2 5 11.1 6 10.8C3 9.9 1 7.3 1 4.5C2 5.1 3.2 5.5 4.5 5.5C1.5 3.5 0.7 0 2.5 -2C5.8 2 10.3 4.5 15.5 4.7C15.3 4.2 15.2 3.6 15.2 3C15.2 0.3 17.5 -2 20.2 -2C21.6 -2 22.9 -1.4 23.8 -0.5C24.7 -0.8 25.5 -1.3 26.2 -1.9C25.8 -0.4 25 0.7 23.9 1.5C25 1.4 26 1.1 27 0.7C26.2 1.8 25.2 2.7 24 3.3C24 3.7 24 4.1 24 4.5C24 12 18 22 6 22" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </a>
-              <a href="#" className="w-10 h-10 flex items-center justify-center rounded-full dark:bg-white/5 bg-gray-200 dark:hover:bg-white/10 hover:bg-gray-300 transition-colors">
+              <a 
+                href="#" 
+                className="w-10 h-10 flex items-center justify-center rounded-full dark:bg-white/5 bg-gray-200 dark:hover:bg-white/10 hover:bg-gray-300 transition-colors"
+                aria-label="Suivez-nous sur LinkedIn"
+              >
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="dark:text-white text-gray-700">
                   <path d="M16 8C17.5913 8 19.1174 8.63214 20.2426 9.75736C21.3679 10.8826 22 12.4087 22 14V21H18V14C18 13.4696 17.7893 12.9609 17.4142 12.5858C17.0391 12.2107 16.5304 12 16 12C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V21H10V14C10 12.4087 10.6321 10.8826 11.7574 9.75736C12.8826 8.63214 14.4087 8 16 8Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   <path d="M6 9H2V21H6V9Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>

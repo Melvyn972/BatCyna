@@ -203,6 +203,9 @@ export default function EditArticle({ params }) {
                   src={imagePreview} 
                   alt="Image de l'article" 
                   className="w-full h-auto object-contain max-h-48"
+                  width={320}
+                  height={240}
+                  sizes="(max-width: 768px) 100vw, 320px"
                 />
               </div>
             </div>

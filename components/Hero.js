@@ -39,12 +39,14 @@ const Hero = () => {
 
         <div className="relative w-full max-w-5xl overflow-hidden rounded-xl border border-base-300 dark:border-white/10 shadow-lg dark:shadow-2xl">
         <Image
-          src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3540&q=80"
-            alt="Interface produit"
-            width={1200}
-            height={800}
-            className="w-full h-auto object-cover"
+          src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=75"
+          alt="Interface produit"
+          width={1920}
+          height={1280}
+          className="w-full h-auto object-cover"
           priority={true}
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 90vw, (max-width: 1024px) 80vw, 1200px"
+          quality={80}
         />
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent dark:from-black/40 dark:to-transparent pointer-events-none"></div>
         </div>
