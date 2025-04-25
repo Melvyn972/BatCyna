@@ -1,62 +1,66 @@
+// app/tos/page.js
 import Link from "next/link";
 import { getSEOTags } from "@/libs/seo";
 import config from "@/config";
-
-// CHATGPT PROMPT TO GENERATE YOUR TERMS & SERVICES — replace with your own data 👇
-
-// 1. Go to https://chat.openai.com/
-// 2. Copy paste bellow
-// 3. Replace the data with your own (if needed)
-// 4. Paste the answer from ChatGPT directly in the <pre> tag below
-
-// You are an excellent lawyer.
-
-// I need your help to write a simple Terms & Services for my website. Here is some context:
-// - Website: https://Cyna.fr
-// - Name: Cyna
-// - Contact information: melvyn@gmail.com
-// - Description: CYNA est un pure player en cybersécurité pour les PME et MSP. La qualité de service est au cœur de notre métier, où nous privilégions l'expertise, la proximité et la rapidité d'exécution. It's a SAAS.
-// - User data collected: name, email and payment information
-// - Non-personal data collection: web cookies
-// - Link to privacy-policy: https://Cyna.fr/privacy-policy
-// - Governing Law: France
-// - Updates to the Terms: users will be updated by email
-
-// Please write a simple Terms & Services for my site. Add the current date. Do not add or explain your reasoning. Answer:
+import Footer from "@/components/Footer";
 
 export const metadata = getSEOTags({
   title: `Conditions Générales d'Utilisation | ${config.appName}`,
   canonicalUrlRelative: "/tos",
 });
 
-const TOS = () => {
+export default function TOS() {
   return (
-    <main className="max-w-xl mx-auto">
-      <div className="p-5">
-        <Link href="/" className="btn btn-ghost">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            className="w-5 h-5"
-          >
-            <path
-              fillRule="evenodd"
-              d="M15 10a.75.75 0 01-.75.75H7.612l2.158 1.96a.75.75 0 11-1.04 1.08l-3.5-3.25a.75.75 0 010-1.08l3.5-3.25a.75.75 0 111.04 1.08L7.612 9.25h6.638A.75.75 0 0115 10z"
-              clipRule="evenodd"
-            />
-          </svg>
-          Retour
-        </Link>
-        <h1 className="text-3xl font-extrabold pb-6">
-          Conditions Générales d&apos;Utilisation – {config.appName}
-        </h1>
+    <>
+      <main
+        className="relative w-full min-h-screen flex flex-col items-center justify-center
+                   bg-gradient-to-b from-base-100 to-base-200 dark:bg-black
+                   text-base-content dark:text-white overflow-hidden py-24"
+      >
+        {/* Overlay léger */}
+        <div
+          className="absolute inset-0
+                     bg-gradient-to-br from-base-100 via-base-100 to-base-200/90
+                     dark:from-black dark:via-black dark:to-gray-900
+                     opacity-90 z-0"
+        />
 
-        <pre
-          className="leading-relaxed whitespace-pre-wrap"
-          style={{ fontFamily: "sans-serif" }}
+        {/* Décos circulaires */}
+        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full
+                        bg-purple-300/20 dark:bg-purple-500/10 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full
+                        bg-blue-300/20 dark:bg-blue-500/10 blur-3xl" />
+
+        {/* Conteneur */}
+        <div
+          className="relative z-10 max-w-5xl w-full mx-auto
+                     bg-white dark:bg-gray-900 rounded-xl shadow-lg
+                     overflow-hidden"
         >
-{`Dernière mise à jour : 24 avril 2025
+          <div className="p-8">
+            {/* Bouton retour */}
+            <Link
+              href="/"
+              className="inline-flex items-center mb-6 text-base-content dark:text-white hover:underline"
+            >
+              ← Retour à l’accueil
+            </Link>
+
+            {/* Titre en gradient */}
+            <h1
+              className="text-3xl font-extrabold mb-6
+                         bg-clip-text text-transparent
+                         bg-gradient-to-r from-purple-600 to-blue-600
+                         dark:from-white dark:to-gray-300"
+            >
+              Conditions Générales d'Utilisation – {config.appName}
+            </h1>
+
+            {/* Contenu */}
+            <pre
+              className="leading-relaxed whitespace-pre-wrap text-left"
+              style={{ fontFamily: "sans-serif" }}
+            >{`Dernière mise à jour : 24 avril 2025
 
 Bienvenue sur Cyna.fr !
 
@@ -90,12 +94,13 @@ Cyna peut modifier les présentes Conditions à tout moment. Toute mise à jour 
 
 Pour toute question concernant ces Conditions, veuillez nous contacter à : supportcyna@gmail.com
 
-Merci d’utiliser Cyna.`}
-        </pre>
-      </div>
-    </main>
+Merci d’utiliser Cyna.`}</pre>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer commun */}
+      <Footer />
+    </>
   );
-};
-
-export default TOS;
-
+}
