@@ -83,4 +83,4 @@ Les contributions sont les bienvenues ! N'hésitez pas à soumettre une pull req
 
 ## Licence
 
-Ce projet est sous licence [LICENSE](LICENCE)
+Ce projet est sous licence [LICENSE](LICENCE.txt)
