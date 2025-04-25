@@ -145,11 +145,7 @@ export default async function ArticleDetail({ params }) {
               </div>
               
               <div className="flex items-center mb-8">
-                <span className="text-3xl font-bold text-primary">99,99 €</span>
-                <span className="ml-3 text-lg line-through text-base-content/50">129,99 €</span>
-                <span className="ml-3 bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-400 px-2 py-1 rounded text-xs font-bold">
-                  -23%
-                </span>
+                <span className="text-3xl font-bold text-primary">{article.price.toFixed(2)} €</span>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
@@ -199,7 +195,7 @@ export default async function ArticleDetail({ params }) {
                           {recArticle.description}
                         </p>
                         <div className="mt-auto">
-                          <span className="text-primary font-bold">99,99 €</span>
+                          <span className="text-primary font-bold">{recArticle.price.toFixed(2)} €</span>
                         </div>
                       </div>
                     </div>

@@ -198,6 +198,8 @@ export default async function AdminDashboard() {
                               src={user.image}
                               alt={user.name || user.email}
                               className="h-10 w-10 rounded-full object-cover"
+                              width={40}
+                              height={40}
                             />
                           ) : (
                             <div className="h-10 w-10 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center text-blue-500 dark:text-blue-300 text-lg font-bold">
@@ -328,6 +330,8 @@ export default async function AdminDashboard() {
                               src={article.image}
                               alt={article.title}
                               className="h-12 w-12 rounded-md object-cover"
+                              width={48}
+                              height={48}
                             />
                           ) : (
                             <div className="h-12 w-12 rounded-md bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-400 dark:text-gray-500">

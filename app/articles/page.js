@@ -61,16 +61,9 @@ const Articles = async () => {
                       <span className="text-primary font-medium text-sm">
                         Voir les détails
                       </span>
-                      <svg 
-                        xmlns="http://www.w3.org/2000/svg" 
-                        fill="none" 
-                        viewBox="0 0 24 24" 
-                        strokeWidth={1.5} 
-                        stroke="currentColor" 
-                        className="w-5 h-5 text-primary group-hover:translate-x-1 transition-transform"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                      </svg>
+                      <span className="text-primary font-bold">
+                        {article.price.toFixed(2)} €
+                      </span>
                     </div>
                   </div>
                 </div>
