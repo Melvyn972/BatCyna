@@ -136,7 +136,7 @@ export default async function Dashboard() {
           </h2>
           {purchases.length === 0 ? (
             <div className="bg-white dark:bg-gray-800 shadow-lg rounded-xl p-6 text-center">
-              <p className="text-gray-600 dark:text-gray-400">Vous n'avez pas encore acheté d'articles.</p>
+              <p className="text-gray-600 dark:text-gray-400">Vous n&apos;avez pas encore acheté d&apos;articles.</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -165,7 +165,7 @@ export default async function Dashboard() {
                     )}
                     <div className="mt-4">
                       <Link href={`/articles/${item.article.id}`} className="btn btn-primary text-white normal-case">  
-                        Voir l'article
+                        Voir l&apos;article
                       </Link>
                     </div>
                   </div>

@@ -53,6 +53,9 @@ export const authOptions = {
   session: {
     strategy: "jwt",
   },
+  pages: {
+    verifyRequest: "/auth/verify?in=login",
+  },
   theme: {
     brandColor: config.colors.main,
     // Add you own logo below. Recommended size is rectangle (i.e. 200x50px) and show your logo + name.

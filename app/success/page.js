@@ -122,7 +122,7 @@ export default function SuccessPage() {
             <h1 className="text-2xl font-bold mb-4">Problème de vérification</h1>
             
             <p className="text-base-content/70 dark:text-gray-300 mb-6">
-              Nous n'avons pas pu vérifier votre paiement. Si vous avez déjà été débité, veuillez nous contacter.
+              Nous n&apos;avons pas pu vérifier votre paiement. Si vous avez déjà été débité, veuillez nous contacter.
             </p>
             
             <div className="space-y-3">
@@ -131,7 +131,7 @@ export default function SuccessPage() {
               </Link>
               
               <Link href="/" className="btn btn-outline w-full">
-                Retour à l'accueil
+                Retour à l&apos;accueil
               </Link>
             </div>
           </div>
@@ -164,7 +164,7 @@ export default function SuccessPage() {
             </Link>
             
             <Link href="/" className="btn btn-outline w-full">
-              Retour à l'accueil
+              Retour à l&apos;accueil
             </Link>
           </div>
         </div>

@@ -18,7 +18,7 @@ export default function LoginPage() {
     try {
       // For demonstration, we'll support both credential and email auth
       // In a real app, you might use just one method
-      const result = await signIn("credentials", {
+      const result = await signIn("email", {
         email,
         redirect: false,
         callbackUrl: config.auth.callbackUrl,
