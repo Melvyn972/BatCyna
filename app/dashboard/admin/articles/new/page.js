@@ -52,6 +52,7 @@ export default function NewArticle() {
       formDataToSend.append('title', formData.title);
       formDataToSend.append('description', formData.description);
       formDataToSend.append('category', formData.category);
+      formDataToSend.append('price', formData.price);
       
       if (selectedFile) {
         formDataToSend.append('image', selectedFile);
@@ -158,6 +159,8 @@ export default function NewArticle() {
               value={formData.price}
               onChange={handleChange}
               className="shadow-sm bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 transition-colors"
+              min="0"
+              step="0.01"
               required
             />
           </div>

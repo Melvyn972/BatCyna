@@ -38,30 +38,29 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  customerId    String?   // Stripe customer ID
-  priceId       String?   // Stripe price ID
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-  role          UserRole  @default(USER)
-  phone         String?
-  address       String?
-  consentMarketing Boolean @default(false)
-  consentAnalytics Boolean @default(false)
-  consentThirdParty Boolean @default(false)
-  dataRetentionPeriod String @default("2_years")  // How long we keep user data
-  
-  accounts      Account[]
-  sessions      Session[]
-  cart          Cart[]
-  purchases     Purchase[] // User's purchased articles
+  id                  String    @id @default(cuid())
+  name                String?
+  email               String?   @unique
+  emailVerified       DateTime?
+  image               String?
+  customerId          String? // Stripe customer ID
+  priceId             String? // Stripe price ID
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+  role                UserRole  @default(USER)
+  phone               String?
+  address             String?
+  consentMarketing    Boolean   @default(false)
+  consentAnalytics    Boolean   @default(false)
+  consentThirdParty   Boolean   @default(false)
+  dataRetentionPeriod String    @default("2_years") // How long we keep user data
+
+  accounts       Account[]
+  sessions       Session[]
+  cart           Cart[]
+  purchases      Purchase[] // User's purchased articles
   consentHistory ConsentHistory[] // Track consent history
 }
-
 
 enum UserRole {
   ADMIN
@@ -83,7 +82,6 @@ model Lead {
   updatedAt DateTime @updatedAt
 }
 
-
 model Articles {
   id          String     @id @default(cuid())
   title       String
@@ -94,18 +92,20 @@ model Articles {
   createdAt   DateTime   @default(now())
   updatedAt   DateTime   @updatedAt
   purchases   Purchase[] // Users who purchased this article
+  cartItems   Cart[] // Items in users' carts
 }
 
 model Purchase {
-  id         String   @id @default(cuid())
-  userId     String
-  articleId  String
-  purchaseDate DateTime @default(now())
-  
-  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  article    Articles @relation(fields: [articleId], references: [id], onDelete: Cascade)
-  
-  @@unique([userId, articleId])
+  id           String    @id @default(cuid())
+  userId       String
+  articleId    String
+  purchaseDate DateTime  @default(now())
+  quantity     Int       @default(1)
+  paidAt       DateTime?
+  orderId      String?
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  article Articles @relation(fields: [articleId], references: [id], onDelete: Cascade)
 }
 
 model Cart {
@@ -116,17 +116,18 @@ model Cart {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  article   Articles @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
 
 // Track user consent history
 model ConsentHistory {
-  id            String    @id @default(cuid())
-  userId        String
-  consentType   String    // "marketing", "analytics", "thirdParty"
-  status        Boolean   // true for granted, false for revoked
-  timestamp     DateTime  @default(now())
-  ipAddress     String?   // Store IP address for audit purposes
-  userAgent     String?   // Store browser/device info
-  
-  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id          String   @id @default(cuid())
+  userId      String
+  consentType String // "marketing", "analytics", "thirdParty"
+  status      Boolean // true for granted, false for revoked
+  timestamp   DateTime @default(now())
+  ipAddress   String? // Store IP address for audit purposes
+  userAgent   String? // Store browser/device info
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

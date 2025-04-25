@@ -4,7 +4,9 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 import ThemeToggle from "@/app/components/ThemeToggle";
+import CartCount from "@/components/CartCount";
 import logo from "@/app/icon.png";
 import config from "@/config";
 
@@ -25,6 +27,7 @@ const links = [
 
 const Header = () => {
   const searchParams = useSearchParams();
+  const { data: session, status } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -76,6 +79,7 @@ const Header = () => {
         
         <div className="flex lg:hidden">
           <div className="flex items-center gap-3">
+            <CartCount />
             <ThemeToggle />
           <button
             type="button"
@@ -115,13 +119,38 @@ const Header = () => {
         </div>
 
         <div className="hidden lg:flex lg:items-center lg:gap-3">
+          <CartCount />
           <ThemeToggle />
-          <Link
-            href="/auth/login"
-            className="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:shadow-lg text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 text-sm font-medium rounded-full transition-all"
-          >
-            Commencer
-          </Link>
+          {status === "authenticated" ? (
+            <Link
+              href="/dashboard"
+              className="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:shadow-lg text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 text-sm font-medium rounded-full transition-all flex items-center gap-2"
+            >
+              {session.user?.image ? (
+                <Image
+                  src={session.user.image}
+                  alt={session.user?.name || "Account"}
+                  className="w-6 h-6 rounded-full"
+                  referrerPolicy="no-referrer"
+                  width={24}
+                  height={24}
+                  quality={90}
+                />
+              ) : (
+                <span className="w-6 h-6 bg-white dark:bg-gray-800 text-black dark:text-white flex justify-center items-center rounded-full shrink-0">
+                  {session.user?.name?.charAt(0) || session.user?.email?.charAt(0) || "U"}
+                </span>
+              )}
+              <span>{session.user?.name || session.user?.email || "Compte"}</span>
+            </Link>
+          ) : (
+            <Link
+              href="/auth/login"
+              className="px-5 py-2.5 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:shadow-lg text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 text-sm font-medium rounded-full transition-all"
+            >
+              Commencer
+            </Link>
+          )}
         </div>
       </nav>
 
@@ -149,6 +178,7 @@ const Header = () => {
             </Link>
             
             <div className="flex items-center gap-3">
+              <CartCount />
               <ThemeToggle />
             <button
               type="button"
@@ -179,22 +209,47 @@ const Header = () => {
                   <Link
                     href={link.href}
                     key={link.href}
-                className="text-base-content/80 dark:text-white/80 hover:text-base-content dark:hover:text-white transition-colors text-lg font-medium"
+                    className="text-base-content/80 dark:text-white/80 hover:text-base-content dark:hover:text-white transition-colors text-lg font-medium"
                     title={link.label}
-                onClick={() => setIsOpen(false)}
+                    onClick={() => setIsOpen(false)}
                   >
                     {link.label}
                   </Link>
                 ))}
             
             <div className="mt-8">
-              <Link
-                href="/auth/login"
-                className="inline-block w-full px-5 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:shadow-lg text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 text-center font-medium rounded-full transition-all"
-                onClick={() => setIsOpen(false)}
-              >
-                Commencer
-              </Link>
+              {status === "authenticated" ? (
+                <Link
+                  href="/dashboard"
+                  className="inline-block w-full px-5 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:shadow-lg text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 text-center font-medium rounded-full transition-all flex items-center justify-center gap-2"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {session.user?.image ? (
+                    <Image
+                      src={session.user.image}
+                      alt={session.user?.name || "Account"}
+                      className="w-6 h-6 rounded-full"
+                      referrerPolicy="no-referrer"
+                      width={24}
+                      height={24}
+                      quality={90}
+                    />
+                  ) : (
+                    <span className="w-6 h-6 bg-white dark:bg-gray-800 text-black dark:text-white flex justify-center items-center rounded-full shrink-0">
+                      {session.user?.name?.charAt(0) || session.user?.email?.charAt(0) || "U"}
+                    </span>
+                  )}
+                  <span>{session.user?.name || session.user?.email || "Compte"}</span>
+                </Link>
+              ) : (
+                <Link
+                  href="/auth/login"
+                  className="inline-block w-full px-5 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 hover:shadow-lg text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 text-center font-medium rounded-full transition-all"
+                  onClick={() => setIsOpen(false)}
+                >
+                  Commencer
+                </Link>
+              )}
             </div>
           </div>
         </div>
