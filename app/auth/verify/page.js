@@ -28,14 +28,14 @@ export default function VerifyPage() {
     <div className="min-h-screen flex items-center justify-center bg-base-100 px-4">
       <div className="card w-full max-w-md bg-base-200 shadow-xl">
         <div className="card-body text-center">
-          <h1 className="text-2xl font-bold mb-6">Verifying your email</h1>
+          <h1 className="text-2xl font-bold mb-6">Vérification de votre email</h1>
           
           {status === "verifying" && (
             <>
               <div className="flex justify-center mb-4">
                 <span className="loading loading-spinner loading-lg"></span>
               </div>
-              <p>Please wait while we verify your email...</p>
+              <p>Veuillez patienter pendant que nous vérifions votre email...</p>
             </>
           )}
 
@@ -46,7 +46,7 @@ export default function VerifyPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <p>Invalid verification link. Please try signing in again.</p>
+              <p>Lien de vérification invalide. Veuillez réessayer de vous connecter.</p>
             </>
           )}
 
@@ -57,7 +57,7 @@ export default function VerifyPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <p>The verification is taking longer than expected. If you're not redirected automatically, please try signing in again.</p>
+              <p>La vérification prend plus de temps que prévu. Si vous n&apos;êtes pas redirigé automatiquement, veuillez réessayer de vous connecter.</p>
             </>
           )}
         </div>

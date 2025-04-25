@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-
+import Image from 'next/image';
 export default function NewUser() {
   const router = useRouter();
   const fileInputRef = useRef(null);
@@ -176,7 +176,7 @@ export default function NewUser() {
               className="shadow-sm bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white rounded-md focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 transition-colors"
             />
             <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
-              Laissez vide pour les utilisateurs s'authentifiant via des fournisseurs OAuth.
+              Laissez vide pour les utilisateurs s&apos;authentifiant via des fournisseurs OAuth.
             </p>
           </div>
 
@@ -257,7 +257,7 @@ export default function NewUser() {
             <div className="mt-4">
               <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Aperçu :</p>
               <div className="border border-gray-300 dark:border-gray-600 rounded-md overflow-hidden w-32 h-32 relative">
-                <img 
+                <Image 
                   src={imagePreview} 
                   alt="Aperçu" 
                   className="w-full h-full object-cover"

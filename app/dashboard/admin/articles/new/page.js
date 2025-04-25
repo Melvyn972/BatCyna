@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-
+import Image from 'next/image';
 export default function NewArticle() {
   const router = useRouter();
   const fileInputRef = useRef(null);
@@ -195,7 +195,7 @@ export default function NewArticle() {
               <div className="mt-4">
                 <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Aperçu :</p>
                 <div className="border border-gray-300 dark:border-gray-600 rounded-md overflow-hidden max-w-xs">
-                  <img 
+                  <Image 
                     src={imagePreview} 
                     alt="Aperçu" 
                     className="w-full h-auto object-contain max-h-60"

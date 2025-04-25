@@ -5,7 +5,6 @@ import prisma from "@/libs/prisma";
 import { writeFile } from "fs/promises";
 import { join } from "path";
 import { v4 as uuidv4 } from "uuid";
-import bcrypt from "bcryptjs";
 
 // Helper function to process avatar uploads
 async function saveFile(file) {
@@ -30,6 +29,7 @@ async function saveFile(file) {
 
 // GET /api/admin/users - Get all users
 export async function GET(request) {
+  console.log(request);
   try {
     // Check if user is authenticated and is an admin
     const session = await getServerSession(authOptions);
@@ -109,7 +109,6 @@ export async function POST(request) {
     const formData = await request.formData();
     const name = formData.get('name');
     const email = formData.get('email');
-    const password = formData.get('password');
     const role = formData.get('role');
     const articlesJson = formData.get('articles');
     const avatarFile = formData.get('avatar');
@@ -148,12 +147,6 @@ export async function POST(request) {
     let avatarPath = null;
     if (avatarFile && avatarFile.size > 0) {
       avatarPath = await saveFile(avatarFile);
-    }
-
-    // Hash password if provided
-    let hashedPassword = null;
-    if (password) {
-      hashedPassword = await bcrypt.hash(password, 10);
     }
 
     // Create the user with transaction to handle purchases

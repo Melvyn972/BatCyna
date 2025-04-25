@@ -25,7 +25,7 @@ const Footer = () => {
               <span className="font-bold text-xl dark:text-white text-gray-900">{config.appName}</span>
             </Link>
             <p className="text-sm dark:text-gray-400 text-gray-600 max-w-sm">
-              Protégez votre vie numérique avec notre suite de sécurité avancée, conçue pour vous donner tranquillité d'esprit et contrôle total.
+              Protégez votre vie numérique avec notre suite de sécurité avancée, conçue pour vous donner tranquillité d&apos;esprit et contrôle total.
             </p>
             
             <div className="flex gap-4">
@@ -89,7 +89,7 @@ const Footer = () => {
                 type="submit"
                 className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm font-medium rounded-lg whitespace-nowrap"
               >
-                S'abonner
+                S&apos;abonner
               </button>
             </form>
             
@@ -112,7 +112,7 @@ const Footer = () => {
               Politique de confidentialité
             </Link>
             <Link href="/tos" className="text-sm dark:text-gray-400 text-gray-600 dark:hover:text-white hover:text-gray-900 transition-colors">
-              Conditions d'utilisation
+              Conditions d&apos;utilisation
             </Link>
           </div>
         </div>

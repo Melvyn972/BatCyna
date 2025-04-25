@@ -3,17 +3,12 @@
 import { useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
-import Image from "next/image";
 import config from "@/config";
-import { useTheme } from "@/app/context/ThemeContext";
 
 export default function LoginPage() {
-  const { isDark } = useTheme();
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState("");
-  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -25,7 +20,6 @@ export default function LoginPage() {
       // In a real app, you might use just one method
       const result = await signIn("credentials", {
         email,
-        password,
         redirect: false,
         callbackUrl: config.auth.callbackUrl,
       });
@@ -34,29 +28,6 @@ export default function LoginPage() {
         setMessage("Identifiants incorrects. Veuillez réessayer.");
       } else if (result?.url) {
         window.location.href = result.url;
-      }
-    } catch (error) {
-      setMessage("Une erreur s'est produite. Veuillez réessayer.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleEmailLogin = async () => {
-    setIsLoading(true);
-    setMessage("");
-
-    try {
-      const result = await signIn("email", {
-        email,
-        redirect: false,
-        callbackUrl: config.auth.callbackUrl,
-      });
-
-      if (result?.error) {
-        setMessage("Une erreur s'est produite. Veuillez réessayer.");
-      } else {
-        setMessage("Un lien de connexion a été envoyé à votre adresse email!");
       }
     } catch (error) {
       setMessage("Une erreur s'est produite. Veuillez réessayer.");
@@ -154,9 +125,9 @@ export default function LoginPage() {
           </form>
           
           <div className="mt-6 text-center dark:text-gray-300 text-gray-500 text-sm">
-            Vous n'avez pas de compte?{" "}
+            Vous n&apos;avez pas de compte?{" "}
             <Link href="/auth/register" className="text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors font-medium">
-              S'inscrire
+              S&apos;inscrire
             </Link>
           </div>
         </div>

@@ -11,13 +11,13 @@ const CTA = () => {
       <div className="max-w-7xl mx-auto px-6 md:px-10 relative z-10">
         <div className="max-w-4xl mx-auto text-center mb-16">
           <span className="inline-block py-1 px-3 text-xs bg-gradient-to-r from-purple-500/20 to-blue-500/20 dark:bg-white/10 text-base-content dark:text-white rounded-full mb-6 font-medium">
-            Commencez dès aujourd'hui
+            Commencez dès aujourd&apos;hui
           </span>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-base-content dark:text-white mb-6 leading-tight">
             Protégez votre entreprise contre les <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-blue-500 dark:from-purple-400 dark:to-blue-400">menaces cyber</span> en évolution
             </h2>
           <p className="text-xl text-base-content/80 dark:text-gray-300 mb-10 max-w-3xl mx-auto">
-            Mettez en œuvre une sécurité de niveau entreprise sans la complexité ou le coût de niveau entreprise. Commencez à sécuriser vos actifs dès aujourd'hui.
+            Mettez en œuvre une sécurité de niveau entreprise sans la complexité ou le coût de niveau entreprise. Commencez à sécuriser vos actifs dès aujourd&apos;hui.
             </p>
         </div>
             
@@ -81,7 +81,7 @@ const CTA = () => {
               </svg>
               </div>
             <h3 className="text-lg font-semibold text-base-content dark:text-white mb-1">Support 24/7</h3>
-            <p className="text-base-content/70 dark:text-gray-400 text-sm">Une équipe d'experts à votre service en permanence</p>
+            <p className="text-base-content/70 dark:text-gray-400 text-sm">Une équipe d&apos;experts à votre service en permanence</p>
           </div>
         </div>
       </div>

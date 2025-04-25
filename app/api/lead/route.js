@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import prisma from "@/libs/prisma";
 
 // This route is used to store the leads that are generated from the landing page.
 // The API call is initiated by <ButtonLead /> component
