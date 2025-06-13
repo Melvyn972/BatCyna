@@ -1,182 +1,36 @@
-"use client";
+import { Poppins } from "next/font/google";
+import { getSEOTags } from "@/libs/seo";
+import ClientLayout from "@/components/LayoutClient";
+import "./globals.css";
+import Head from "next/head";
 
-import { useEffect, useState } from "react";
+const font = Poppins({ 
+	subsets: ["latin"],
+	weight: ["300", "400", "500", "600", "700"],
+});
 
-import "../public/scss/main.scss";
-import "photoswipe/dist/photoswipe.css";
-import "rc-slider/assets/index.css";
-import HomesModal from "@/components/modals/HomesModal";
-import Context from "@/context/Context";
-import QuickView from "@/components/modals/QuickView";
-import ProductSidebar from "@/components/modals/ProductSidebar";
-import QuickAdd from "@/components/modals/QuickAdd";
-import Compare from "@/components/modals/Compare";
-import ShopCart from "@/components/modals/ShopCart";
-import AskQuestion from "@/components/modals/AskQuestion";
-import BlogSidebar from "@/components/modals/BlogSidebar";
-import DeliveryReturn from "@/components/modals/DeliveryReturn";
-import Login from "@/components/modals/Login";
-import MobileMenu from "@/components/modals/MobileMenu";
-import Register from "@/components/modals/Register";
-import ResetPass from "@/components/modals/ResetPass";
-import SearchModal from "@/components/modals/SearchModal";
-import ToolbarBottom from "@/components/modals/ToolbarBottom";
-import ToolbarShop from "@/components/modals/ToolbarShop";
+export const viewport = {
+	themeColor: "#000000",
+	width: "device-width",
+	initialScale: 1,
+};
 
-import { usePathname } from "next/navigation";
-import ShareModal from "@/components/modals/ShareModal";
-import ScrollTop from "@/components/common/ScrollTop";
+
+export const metadata = getSEOTags();
+
 export default function RootLayout({ children }) {
-  const pathname = usePathname();
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Import the script only on the client side
-      import("bootstrap/dist/js/bootstrap.esm").then(() => {
-        // Module is imported, you can access any exported functionality if
-      });
-    }
-  }, []);
-  useEffect(() => {
-    const handleScroll = () => {
-      const header = document.querySelector("header");
-      if (window.scrollY > 100) {
-        header.classList.add("header-bg");
-      } else {
-        header.classList.remove("header-bg");
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup function to remove event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []); // Empty dependency array means this effect runs once on mount and cleans up on unmount
-
-  const [scrollDirection, setScrollDirection] = useState("down");
-
-  useEffect(() => {
-    setScrollDirection("up");
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY > 250) {
-        if (currentScrollY > lastScrollY.current) {
-          // Scrolling down
-          setScrollDirection("down");
-        } else {
-          // Scrolling up
-          setScrollDirection("up");
-        }
-      } else {
-        // Below 250px
-        setScrollDirection("down");
-      }
-
-      lastScrollY.current = currentScrollY;
-    };
-
-    const lastScrollY = { current: window.scrollY };
-
-    // Add scroll event listener
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup: remove event listener when component unmounts
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, [pathname]);
-  useEffect(() => {
-    // Close any open modal
-    const bootstrap = require("bootstrap"); // dynamically import bootstrap
-    const modalElements = document.querySelectorAll(".modal.show");
-    modalElements.forEach((modal) => {
-      const modalInstance = bootstrap.Modal.getInstance(modal);
-      if (modalInstance) {
-        modalInstance.hide();
-      }
-    });
-
-    // Close any open offcanvas
-    const offcanvasElements = document.querySelectorAll(".offcanvas.show");
-    offcanvasElements.forEach((offcanvas) => {
-      const offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvas);
-      if (offcanvasInstance) {
-        offcanvasInstance.hide();
-      }
-    });
-  }, [pathname]); // Runs every time the route changes
-
-  useEffect(() => {
-    const header = document.querySelector("header");
-    if (header) {
-      if (scrollDirection == "up") {
-        header.style.top = "0px";
-      } else {
-        header.style.top = "-185px";
-      }
-    }
-  }, [scrollDirection]);
-  useEffect(() => {
-    const WOW = require("@/utlis/wow");
-    const wow = new WOW.default({
-      mobile: false,
-      live: false,
-    });
-    wow.init();
-  }, [pathname]);
-
-  useEffect(() => {
-    const initializeDirection = () => {
-      const direction = localStorage.getItem("direction");
-
-      if (direction) {
-        const parsedDirection = JSON.parse(direction);
-        document.documentElement.dir = parsedDirection.dir;
-        document.body.classList.add(parsedDirection.dir);
-      } else {
-        document.documentElement.dir = "ltr";
-      }
-
-      const preloader = document.getElementById("preloader");
-      if (preloader) {
-        preloader.classList.add("disabled");
-      }
-    };
-
-    initializeDirection();
-  }, []); // Only runs once on component mount
-
-  return (
-    <html lang="en">
-      <body className="preload-wrapper">
-        <div className="preload preload-container" id="preloader">
-          <div className="preload-logo">
-            <div className="spinner"></div>
-          </div>
-        </div>{" "}
-        <Context>
-          <div id="wrapper">{children}</div>
-          <HomesModal /> <QuickView />
-          <QuickAdd />
-          <ProductSidebar />
-          <Compare />
-          <ShopCart />
-          <AskQuestion />
-          <BlogSidebar />
-          <DeliveryReturn />
-          <Login />
-          <MobileMenu />
-          <Register />
-          <ResetPass />
-          <SearchModal />
-          <ToolbarBottom />
-          <ToolbarShop />
-          <ShareModal />{" "}
-        </Context>
-        <ScrollTop />
-      </body>
-    </html>
-  );
+	return (
+		<html
+			lang="fr"
+			className={`${font.className} antialiased`}
+			suppressHydrationWarning
+		>
+			<Head>
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+			</Head>
+			<body className="bg-white dark:bg-black text-base-content">
+				<ClientLayout>{children}</ClientLayout>
+			</body>
+		</html>
+	);
 }

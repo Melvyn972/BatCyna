@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# BatCyna
 
-## Getting Started
+BatCyna est une application web moderne construite avec Next.js qui permet aux utilisateurs de gérer leurs informations personnelles et leurs préférences RGPD en toute sécurité.
 
-First, run the development server:
+## Fonctionnalités
 
+- 🔐 **Authentification sécurisée** : Système complet d'authentification avec NextAuth
+- 👤 **Gestion de profil** : Modification des informations personnelles
+- 🛡️ **Conformité RGPD** : Gestion des consentements et exportation des données
+- 🌓 **Mode sombre/clair** : Interface utilisateur adaptative
+- 👑 **Panneau d'administration** : Gestion des utilisateurs et paramètres du site
+- 📱 **Responsive** : Compatible avec tous les appareils
+
+## Technologies
+
+- **Frontend** : Next.js, React, TailwindCSS, DaisyUI
+- **Backend** : API Routes Next.js, Prisma ORM
+- **Base de données** : SQLite
+- **Authentification** : NextAuth.js
+- **Paiements** : Stripe (intégration)
+- **Emails** : Nodemailer
+
+## Installation
+
+1. Clonez le dépôt
+```bash
+git clone <url-du-repo>
+cd BatCyna
+```
+
+2. Installez les dépendances
+```bash
+npm install
+# ou
+yarn install
+# ou
+bun install
+```
+
+3. Configurez les variables d'environnement
+```bash
+cp .env.example .env
+# Puis modifiez .env avec vos propres valeurs
+```
+
+4. Exécutez les migrations Prisma
+```bash
+npx prisma migrate dev
+```
+
+5. Lancez le serveur de développement
 ```bash
 npm run dev
-# or
+# ou
 yarn dev
-# or
-pnpm dev
-# or
+# ou
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+6. Ouvrez [http://localhost:3000](http://localhost:3000) dans votre navigateur
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Déploiement
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+L'application peut être déployée sur Vercel, Netlify ou toute autre plateforme compatible avec Next.js.
 
-## Learn More
+```bash
+npm run build
+npm run start
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Structure du projet
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/app` - Pages et composants spécifiques aux routes
+- `/components` - Composants React réutilisables
+- `/prisma` - Schéma et migrations de la base de données
+- `/public` - Fichiers statiques
+- `/libs` - Utilitaires et configurations
+- `/app/api` - API Routes Next.js
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contribution
 
-## Deploy on Vercel
+Les contributions sont les bienvenues ! N'hésitez pas à soumettre une pull request ou à ouvrir une issue.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Licence
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Ce projet est sous licence [LICENSE](LICENCE.txt)
